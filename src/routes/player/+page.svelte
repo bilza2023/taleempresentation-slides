@@ -3,7 +3,7 @@
 </svelte:head>
 
 <script>
- import CanvasPlayer from "../../lib/canvas/canvasPlayer/CanvasPlayer.svelte";
+ import {CanvasPlayer} from "../../lib";
   let pulse = 0;
   let currentTime = 0;
   let currentSlide = {
