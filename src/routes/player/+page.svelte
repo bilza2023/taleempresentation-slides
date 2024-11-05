@@ -3,9 +3,12 @@
 </svelte:head>
 
 <script>
+  import {onMount} from "svelte";  
  import {CanvasPlayer} from "../../lib";
+ import loadAssets from "../assets/loadAssets";
   let pulse = 0;
   let currentTime = 0;
+  let assets = null;
   let currentSlide = {
         "startTime": 0,
         "endTime": 3,
@@ -16,7 +19,7 @@
             "name": "",
             "content": "",
             "showAt": 0,
-            "extra": {
+            "itemExtra": {
               "text": {
                 "initialValue": "Chapter 4 Ex 4.1 Q 5",
                 "setCommands": []
@@ -59,12 +62,12 @@
               "useShowHide": false,
               "setCommands": []
             },
-            "arr": []
+            "itemArray": []
            
           }
         ],
-        "slideExtra": [],
-        "extra": {
+        "slideArray": [],
+        "slideExtra": {
           "backgroundColor": "#575772",
           "canvasWidth": 1000,
           "canvasHeight": 360,
@@ -80,6 +83,11 @@
         }
       };
 
+      //onMount
+onMount(async()=>{
+  assets = await loadAssets(); 
+
+});
 /**
       
 ///////////====These Are the Props Required====
@@ -116,7 +124,7 @@
 <!-- svelte-ignore missing-declaration -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div class=" h-full w-full bg-gray-800 text-white p-0 m-0" >
-
+{#if assets}
       <CanvasPlayer 
      
       {currentTime} 
@@ -127,14 +135,14 @@
         startTime={currentSlide.startTime}
         endTime={currentSlide.endTime}
       
-        slideExtra={currentSlide.slideExtra}
-        extra={currentSlide.extra}
+        itemExtra={currentSlide.itemExtra}
+        itemArray={currentSlide.itemArray}
       
-      spriteImgArray=[]
-      bgImages=[]
+      spriteImgArray={assets.spriteImages}
+      bgImages={assets.bgImages}
 
       setPulse={()=>{}}
   />
 
+{/if}
 </div>
-

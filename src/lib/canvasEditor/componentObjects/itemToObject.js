@@ -24,7 +24,7 @@ import LinesObject from './LinesObject';
 export default function itemToObject(item,fnList={},spriteImgArray=[]){
 
     let selectedItem;
-    let lookFor = item.extra.command;
+    let lookFor = item.itemExtra.command;
     
    switch (lookFor) {
 

@@ -3,8 +3,7 @@
   import {onMount} from "svelte";
   import audioData from "./audioData.js";
   import {slides as defualtSlide} from "./slides.js";
-  import icons from "../../lib/icons.js";
-  import loadAssets from "./assets/loadAssets";
+  import loadAssets from "../assets/loadAssets";
   let currentTime=0;
 
   import AppToolbar from "./AppToolbar.svelte";

@@ -14,11 +14,11 @@ export default class ComponentObject {
 //****************************************************************** */
 
 isVisible(currentTime){
-   if(!this.itemData.extra.showAt){
-      // this.itemData.extra.showAt = 0; //no need to edit data here this function is just for checking showAt
+   if(!this.itemData.itemExtra.showAt){
+      // this.itemData.itemExtra.showAt = 0; //no need to edit data here this function is just for checking showAt
       return true;
    }else {
-      if( currentTime >= this.itemData.extra.showAt ){
+      if( currentTime >= this.itemData.itemExtra.showAt ){
          return true;
       }else {
          return false;
@@ -62,17 +62,17 @@ draw(drawLib,currentTime){
  }
  //comp object also has width height x,y for its on isHit
  width(){
-    return this.itemData.extra.width.initialValue;
+    return this.itemData.itemExtra.width.initialValue;
  }
  height(){
-    return this.itemData.extra.height.initialValue;
+    return this.itemData.itemExtra.height.initialValue;
  }
  getX(){
-    return this.itemData.extra.x.initialValue;
+    return this.itemData.itemExtra.x.initialValue;
  }
  
  getY(){
-    return this.itemData.extra.y.initialValue;
+    return this.itemData.itemExtra.y.initialValue;
  }
 
  isHit(mouseX , mouseY){

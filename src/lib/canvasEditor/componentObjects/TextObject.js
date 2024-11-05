@@ -100,10 +100,10 @@ export default class TextObject extends ComponentObject {
         let btnHandle = new ButtonHandle(this.itemData,this.fnList); 
 
             btnHandle.getX = function(){
-                return this.itemData.extra.x.initialValue - 15;
+                return this.itemData.itemExtra.x.initialValue - 15;
             }
             btnHandle.getY = function(){
-                return this.itemData.extra.y.initialValue + 45;
+                return this.itemData.itemExtra.y.initialValue + 45;
             }
             btnHandle.useInitialValue = true;
 
@@ -114,10 +114,10 @@ export default class TextObject extends ComponentObject {
 
             widthAdder.color = 'pink';
             widthAdder.getX = function(){
-                return this.itemData.extra.x.initialValue - 15;
+                return this.itemData.itemExtra.x.initialValue - 15;
             }
             widthAdder.getY = function(){
-                return this.itemData.extra.y.initialValue + 15;
+                return this.itemData.itemExtra.y.initialValue + 15;
             }
             widthAdder.useInitialValue = true;
 
@@ -128,11 +128,11 @@ export default class TextObject extends ComponentObject {
             let draggerHandle = new DraggerHandle(this.itemData); 
 //--every Component-object can have different x and y e.g x1 x0 etc 
             draggerHandle.getX = function(){
-                return this.itemData.extra.x.initialValue -15;
+                return this.itemData.itemExtra.x.initialValue -15;
             }
 
             draggerHandle.getY = function(){
-                return  this.itemData.extra.y.initialValue -10;
+                return  this.itemData.itemExtra.y.initialValue -10;
             }
             this.handleObjects.push(draggerHandle);    
     }
@@ -140,19 +140,19 @@ export default class TextObject extends ComponentObject {
 
 draw(ctx, currentTime) {
   //--very bad code remove it from here 
-if(!this.itemData.extra.fontSize || this.itemData.extra.fontSize.initialValue){
-  this.itemData.extra.fontSize = getProp(40);
+if(!this.itemData.itemExtra.fontSize || this.itemData.itemExtra.fontSize.initialValue){
+  this.itemData.itemExtra.fontSize = getProp(40);
 }
-  const text = getVal(currentTime, this.itemData.extra.text);
-  const x = getVal(currentTime, this.itemData.extra.x);
-  const y = getVal(currentTime, this.itemData.extra.y);
-  const color = getVal(currentTime, this.itemData.extra.color);
-  const font = this.itemData.extra.font || '12px Arial';
-  const shadowOffsetX = this.itemData.extra.shadowOffsetX || 0;
-  const shadowOffsetY = this.itemData.extra.shadowOffsetY || 0;
-  const shadowBlur = this.itemData.extra.shadowBlur || 4;
-  const shadowColor = this.itemData.extra.shadowColor || 'gray';
-  const globalAlpha = getVal(currentTime, this.itemData.extra.globalAlpha);
+  const text = getVal(currentTime, this.itemData.itemExtra.text);
+  const x = getVal(currentTime, this.itemData.itemExtra.x);
+  const y = getVal(currentTime, this.itemData.itemExtra.y);
+  const color = getVal(currentTime, this.itemData.itemExtra.color);
+  const font = this.itemData.itemExtra.font || '12px Arial';
+  const shadowOffsetX = this.itemData.itemExtra.shadowOffsetX || 0;
+  const shadowOffsetY = this.itemData.itemExtra.shadowOffsetY || 0;
+  const shadowBlur = this.itemData.itemExtra.shadowBlur || 4;
+  const shadowColor = this.itemData.itemExtra.shadowColor || 'gray';
+  const globalAlpha = getVal(currentTime, this.itemData.itemExtra.globalAlpha);
 
   // Save context state
   ctx.save();
@@ -179,23 +179,23 @@ if(!this.itemData.extra.fontSize || this.itemData.extra.fontSize.initialValue){
     ////////////////////////////////////////////////////
 
 width(){
-    return this.itemData.extra.width.initialValue;
+    return this.itemData.itemExtra.width.initialValue;
  }
  height(){
-    return this.itemData.extra.height.initialValue;
+    return this.itemData.itemExtra.height.initialValue;
  }
  getX(){
-    return this.itemData.extra.x.initialValue;
+    return this.itemData.itemExtra.x.initialValue;
  }
  
  getY(){
-    return this.itemData.extra.y.initialValue;
+    return this.itemData.itemExtra.y.initialValue;
  }
 
  getHitAreaRadius() {
     // Base the hit area radius on font size and text length
-    const baseRadius = this.itemData.extra.fontSize.initialValue / 2;
-    const textLength = this.itemData.extra.text.initialValue.length;
+    const baseRadius = this.itemData.itemExtra.fontSize.initialValue / 2;
+    const textLength = this.itemData.itemExtra.text.initialValue.length;
     return baseRadius + (textLength * 2); // Adjust this formula as needed
 }
 

@@ -1,20 +1,20 @@
 <script>
   //@ts-nocheck
   import { onMount, onDestroy } from "svelte";
-  import DrawLibInterpretor from "../drawLib/drawLibInterpretor";
   import DrawLib from "../drawLib/drawLib";
   import itemToObject from "../canvasEditor/componentObjects/itemToObject";
 
-  export let items; 
+  export let items;
   export let currentTime;
   export let bgImages;
   export let spriteImgArray;
-  export let extra;
+
+  export let itemExtra = {};
+  export let itemArray = [];
 
   let canvas;
   let ctx;
   let drawLib;
-  let drawLibInterpretor;
   let interval;
   let isInitialized = false;
   let itemObjects = [];
@@ -23,6 +23,7 @@
 
   function updateItemObjects() {
     itemObjects = [];
+    // debugger;
     for (let i = 0; i < items.length; i++) {
       const item = items[i];
       const itemObj = itemToObject(item, fnList, spriteImgArray);
@@ -40,20 +41,34 @@
 
   function gameLoop() {
     try {
-      if (!itemObjects || !drawLibInterpretor) return;
-      drawLibInterpretor.showGrid = extra.showGrid;
-      drawLibInterpretor.gridLineWidth = extra.gridLineWidth;
-      drawLibInterpretor.gridLineColor = extra.gridLineColor;
-      drawLibInterpretor.cellWidth = extra.cellWidth;
-      drawLibInterpretor.cellHeight = extra.cellHeight;
+      if (!itemObjects) return;
+      
+      if(!itemExtra.bgGlobalAlpha){itemExtra.bgGlobalAlpha=1;}
 
-      drawLibInterpretor.interpret(currentTime, extra);
+drawLib.clear(itemExtra.backgroundColor);
 
+if(itemExtra.bgImg !== "null"){
+for (let i = 0; i < bgImages.length; i++) {
+const element = bgImages[i];
+if(element.name == itemExtra.bgImg){
+  // debugger;
+  drawLib.bgImage(element.img,itemExtra.bgGlobalAlpha || 1);
+  break;
+}
+}
+}         
+
+if(itemExtra.showGrid){
+drawLib.grid(itemExtra.cellWidth, itemExtra.cellHeight, itemExtra.gridLineWidth, itemExtra.gridLineColor);
+}
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
       for (let i = 0; i < itemObjects.length; i++) {
         const item = itemObjects[i];
         try {
           if (item.isVisible(currentTime)) {
-            item.draw(drawLib, currentTime, extra);
+            item.draw(drawLib.ctx, currentTime, item.itemExtra);
           }
         } catch (itemError) {
           console.error(`Error drawing item at index ${i}:`, itemError);
@@ -66,8 +81,8 @@
       if (itemObjects) {
         console.error('Number of itemObjects:', itemObjects.length);
       }
-      if (extra) {
-        console.error('Extra object:', extra);
+      if (itemExtra) {
+        console.error('Extra object:', itemExtra);
       }
     }
   }
@@ -81,14 +96,6 @@
 
     ctx = canvas.getContext("2d");
     drawLib = new DrawLib(canvas, ctx);
-    
-    drawLibInterpretor = new DrawLibInterpretor(
-      canvas,
-      ctx,
-      extra,
-      spriteImgArray,
-      bgImages
-    );
 
     isInitialized = true;
     updateItemObjects();
@@ -98,6 +105,7 @@
   }
 
   onMount(async () => {
+    // debugger;
     if (canvas) {
       await initializeCanvas();
     }
@@ -119,8 +127,8 @@
   <canvas
     class="w-full m-2"
     bind:this={canvas}
-    width={extra.canvasWidth}
-    height={extra.canvasHeight}
+    width={itemExtra.canvasWidth}
+    height={itemExtra.canvasHeight}
     on:mousemove={handleMouseMove}
     on:mousedown={handleMouseDown}
     on:mouseup={handleMouseUp}
