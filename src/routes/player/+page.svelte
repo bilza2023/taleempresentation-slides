@@ -36,8 +36,22 @@ function addNewItem(newItemExtraFn) {
 
 }
 function preDraw() {
-  console.log("preDraw");
+  // console.log("preDraw");
 }
+function postDraw() {
+  // console.log("postDraw");
+}
+function eventMouseMove() {
+  console.log("eventMouseMove");
+}
+function eventMouseUp() {
+  console.log("eventMouseUp");
+}
+function eventMouseDown() {
+  console.log("eventMouseDown");
+}
+
+
 </script>
 <!-- 
 slide should have
@@ -67,6 +81,12 @@ slideExtra={slide.slideExtra}
   {assets}
 
   {preDraw}
+  {postDraw}
+
+  {eventMouseMove}
+  {eventMouseUp}
+  {eventMouseDown}
+
   setPulse={()=>{}}
 
 />

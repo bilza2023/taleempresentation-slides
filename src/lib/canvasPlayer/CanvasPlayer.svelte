@@ -1,7 +1,18 @@
 <script>
   /**   
-  This component is just for display on the canvas but not for editing however when ever an item is added it is recalculated..other than this and 1 function which set-current-time it is just a dumb-player
-  - it has gameLoop -- why ??? should it not just recalculate on currentTime change??
+   * 7-Nov-2024 
+   * ==========
+    - CanvasPlayer.svelte is for  display on the canvas and thats all.
+    -  **do not add any functinality into it**.
+    - All it does is draw itemObjects and thats all.
+    - Mainly it draw itemObjects given in items.
+    - We can also feed it itemObjects in preDraw and postDraw functions since they also get ctx as argement.
+    - We also have some hooks like onMount and onDestroy to setup and teardown canvas and interval.
+    - it does not concern its self with the selectedItem and drawing handles for the selectedItem since that functionality should be seperate.
+    - We can manage selected item using slide.items seperately in parent file and also add Handles for selectedItem using postDraw callback.
+    - it has gameLoop -- why ??? i checked chat-gpt it is good for smooth animation.mouse tracking is not here.
+    - i should add functions for mouse events like click , mouse move etc.
+
    */
   import { onMount, onDestroy } from "svelte";
   import DrawLib from "../drawLib/drawLib";
@@ -9,7 +20,7 @@
 
     // Common props
     export let currentTime;
-    export let slideData;
+    export let slideData; // ? why is this not used?? 
     export let items = []; // Optional for editor mode
     export let slideExtra = {};
     export let assets;
@@ -17,6 +28,11 @@
 
     export let preDraw = () => {};   // Default empty function
     export let postDraw = () => {};  // Default empty function
+
+    export let eventMouseMove = () => {};
+    export let eventMouseDown = () => {};
+    export let eventMouseUp = () => {};  
+    // export let eventKeyDown = () => {};  
     ///////////////////////////////////////////
     
     let canvas;
@@ -24,12 +40,7 @@
     let drawLib;
     let interval;
     let isInitialized = false;
-    
-    // For editor mode mouse tracking
-    let mouseX = 0;
-    let mouseY = 0;
-  
-    const fnList = {};
+    const fnList = {}; //there is no need for it it should be removed BUt itemToObject(item, fnList, assets.spriteImages) needs it and that needs to be checked 
   
     function updateItemObjects(){
       itemObjects = [];
@@ -96,23 +107,12 @@
     async function initializeCanvas() {
       if (!canvas) return false;
       
-      if (interval) {
-        clearInterval(interval);
-      }
+      if (interval) { clearInterval(interval);}
       
       ctx = canvas.getContext("2d");
-      // Set the canvas size to the device's pixel ratio
-      // const dpr = window.devicePixelRatio || 1;
-      // canvas.width =  canvas.width * dpr;
-      // canvas.height = canvas.height * dpr;
-      // ctx.scale(dpr, dpr);
-
-      
-      drawLib = new DrawLib(canvas, ctx);
-  
+      drawLib = new DrawLib(canvas, ctx);//just used twice we can remove drawLib if we want
       isInitialized = true;
       updateItemObjects();
-      
       interval = setInterval(gameLoop, 20);
       return true;
     }
@@ -137,6 +137,10 @@
       bind:this={canvas}
       width={slideExtra.canvasWidth}
       height={slideExtra.canvasHeight}
+
+      on:mousemove={eventMouseMove}
+      on:mousedown={eventMouseDown}
+      on:mouseup=  {eventMouseUp}
 
     ></canvas>
   </div>
