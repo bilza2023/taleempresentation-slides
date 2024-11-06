@@ -1,10 +1,8 @@
 <script>
-  /**
-   
+  /**   
   This component is just for display on the canvas but not for editing however when ever an item is added it is recalculated..other than this and 1 function which set-current-time it is just a dumb-player
   - it has gameLoop -- why ??? should it not just recalculate on currentTime change??
    */
-
   import { onMount, onDestroy } from "svelte";
   import DrawLib from "../drawLib/drawLib";
   import itemToObject from "./componentObjects/itemToObject";
@@ -15,11 +13,8 @@
     export let items = []; // Optional for editor mode
     export let slideExtra = {};
     export let assets;
-    export let isEditorMode=false;
-
-    ///////////////////////////////////////////
     export let itemObjects = []; // Can be passed directly in editor mode
-    export let selectedItem = null; // Only used in editor mode
+    ///////////////////////////////////////////
     
     let canvas;
     let ctx;
@@ -33,10 +28,8 @@
   
     const fnList = {};
   
-    function updateItemObjects() {
-      // debugger;
-      // if (!isEditorMode && items.length > 0) {
-        itemObjects = [];
+    function updateItemObjects(){
+      itemObjects = [];
         for (let i = 0; i < items.length; i++) {
           const item = items[i];
           const itemObj = itemToObject(item, fnList, assets.spriteImages);
@@ -44,15 +37,10 @@
             itemObjects.push(itemObj);
           }
         }
-      // }
     }
-  
     $: {
-      // debugger;
       items;
-      // if (!isEditorMode && items.length > 0 && isInitialized) {
-        updateItemObjects();
-      // }
+      updateItemObjects();
     }
   
     function drawBackground() {
@@ -93,11 +81,6 @@
           if (item.isVisible(currentTime)) {
             item.draw(drawLib.ctx, currentTime, slideExtra);
           }
-        }
-  
-        // Only in editor mode
-        if (isEditorMode && selectedItem) {
-          selectedItem.drawHandles(ctx);
         }
   
       } catch (error) {
@@ -141,42 +124,6 @@
       }
     });
   
-    // Editor mode mouse handling functions
-    function setMousePosition(e) {
-      if (!isEditorMode) return;
-      
-      const rect = canvas.getBoundingClientRect();
-      const scaleX = canvas.width / rect.width;
-      const scaleY = canvas.height / rect.height;
-  
-      mouseX = Math.round((e.clientX - rect.left) * scaleX);
-      mouseY = Math.round((e.clientY - rect.top) * scaleY);
-    }
-  
-    function handleMouseMove(e) {
-      if (!isEditorMode || !selectedItem) return;
-      setMousePosition(e);
-      selectedItem.update(mouseX, mouseY);
-    }
-  
-    function handleMouseDown(e) {
-      if (!isEditorMode || !selectedItem) return;
-      setMousePosition(e);
-      selectedItem.selectHandlesIfHit(mouseX, mouseY);
-    }
-  
-    function handleMouseUp(e) {
-      if (!isEditorMode || !selectedItem) return;
-      setMousePosition(e);
-      selectedItem.deselect();
-    }
-  
-    function handleClick(e) {
-      if (!isEditorMode) return;
-      setMousePosition(e);
-    
-      
-    }
   </script>
   
   <div class="flex justify-center w-full">
@@ -185,13 +132,7 @@
       bind:this={canvas}
       width={slideExtra.canvasWidth}
       height={slideExtra.canvasHeight}
-      on:mousemove={handleMouseMove}
-      on:mousedown={handleMouseDown}
-      on:mouseup={handleMouseUp}
-      on:click={handleClick}
+
     ></canvas>
   </div>
-  {#if isEditorMode}
-    <div class="text-xs">x:{mouseX} y:{mouseY}</div>
-  {/if}
   

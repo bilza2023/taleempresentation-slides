@@ -12,7 +12,6 @@
 
     ///////////////////////////////////////////
     export let itemObjects = []; // Can be passed directly in editor mode
-    export let isEditorMode = false;
     export let selectedItem = null; // Only used in editor mode
     
     let canvas;
@@ -28,8 +27,6 @@
     const fnList = {};
   
     function updateItemObjects() {
-      // debugger;
-      // if (!isEditorMode && items.length > 0) {
         itemObjects = [];
         for (let i = 0; i < items.length; i++) {
           const item = items[i];
@@ -38,15 +35,11 @@
             itemObjects.push(itemObj);
           }
         }
-      // }
     }
   
     $: {
-      // debugger;
       items;
-      // if (!isEditorMode && items.length > 0 && isInitialized) {
         updateItemObjects();
-      // }
     }
   
     function drawBackground() {
@@ -90,9 +83,7 @@
         }
   
         // Only in editor mode
-        if (isEditorMode && selectedItem) {
           selectedItem.drawHandles(ctx);
-        }
   
       } catch (error) {
         console.error("An error occurred:", error);
@@ -137,7 +128,6 @@
   
     // Editor mode mouse handling functions
     function setMousePosition(e) {
-      if (!isEditorMode) return;
       
       const rect = canvas.getBoundingClientRect();
       const scaleX = canvas.width / rect.width;
@@ -148,28 +138,22 @@
     }
   
     function handleMouseMove(e) {
-      if (!isEditorMode || !selectedItem) return;
       setMousePosition(e);
       selectedItem.update(mouseX, mouseY);
     }
   
     function handleMouseDown(e) {
-      if (!isEditorMode || !selectedItem) return;
       setMousePosition(e);
       selectedItem.selectHandlesIfHit(mouseX, mouseY);
     }
   
     function handleMouseUp(e) {
-      if (!isEditorMode || !selectedItem) return;
       setMousePosition(e);
       selectedItem.deselect();
     }
   
     function handleClick(e) {
-      if (!isEditorMode) return;
       setMousePosition(e);
-    
-      
     }
   </script>
   
@@ -185,7 +169,6 @@
       on:click={handleClick}
     ></canvas>
   </div>
-  {#if isEditorMode}
+
     <div class="text-xs">x:{mouseX} y:{mouseY}</div>
-  {/if}
   

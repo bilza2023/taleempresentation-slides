@@ -46,9 +46,13 @@ slideExtra={slide.slideExtra}
 
 <!-- svelte-ignore missing-declaration -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
-<div class=" h-full w-full bg-gray-800 text-white p-0 m-0" >
+<div class=" h-full w-full bg-gray-800 text-white p-2 m-0" >
 {#if slide && assets}
-<Toolbar icons={assets.icons} {addNewItem} />
+
+<div class="flex justify-center px-4 py-0">
+  <Toolbar icons={assets.icons} {addNewItem} />
+
+</div>
 
 <CanvasPlayer
  
