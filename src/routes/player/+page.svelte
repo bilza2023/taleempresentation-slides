@@ -35,7 +35,9 @@ function addNewItem(newItemExtraFn) {
   items =  [...items];
 
 }
-
+function preDraw() {
+  console.log("preDraw");
+}
 </script>
 <!-- 
 slide should have
@@ -63,6 +65,8 @@ slideExtra={slide.slideExtra}
   slideExtra={slide.slideExtra} 
 
   {assets}
+
+  {preDraw}
   setPulse={()=>{}}
 
 />

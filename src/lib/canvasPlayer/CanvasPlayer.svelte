@@ -14,6 +14,9 @@
     export let slideExtra = {};
     export let assets;
     export let itemObjects = []; // Can be passed directly in editor mode
+
+    export let preDraw = () => {};   // Default empty function
+    export let postDraw = () => {};  // Default empty function
     ///////////////////////////////////////////
     
     let canvas;
@@ -79,7 +82,9 @@
         for (let i = 0; i < itemObjects.length; i++) {
           const item = itemObjects[i];
           if (item.isVisible(currentTime)) {
+            preDraw(drawLib.ctx);   
             item.draw(drawLib.ctx, currentTime, slideExtra);
+            postDraw(drawLib.ctx);   
           }
         }
   
