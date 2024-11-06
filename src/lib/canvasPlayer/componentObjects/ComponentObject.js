@@ -1,10 +1,8 @@
 //@ts-nocheck
 
 export default class ComponentObject {
-   constructor(itemData, fnList) {
+   constructor(itemData) {
        this.itemData = itemData;
-       this.fnList = fnList;
-       this.handleObjects = [];
    }
    isVisible(currentTime) {
        if (!this.itemData.itemExtra.showAt) {

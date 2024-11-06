@@ -35,10 +35,16 @@ function addNewItem(newItemExtraFn) {
   items =  [...items];
 
 }
-function preDraw() {
-  // console.log("preDraw");
+function postDraw(ctx) {
+  ctx.fillStyle = 'red';
+  ctx.font = '60px Arial';
+  ctx.textBaseline = 'top';
+  ctx.globalAlpha = 1;
+
+  // Draw the text
+  ctx.fillText("This is a Warning..!", 100, 100);
 }
-function postDraw() {
+function preDraw() {
   // console.log("postDraw");
 }
 function eventMouseMove() {
