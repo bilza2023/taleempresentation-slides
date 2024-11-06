@@ -1,4 +1,5 @@
 <script>
+    import { onMount } from "svelte";
   import SharedCanvasBase from './SharedCanvasBase.svelte';
 
   export let currentTime;
@@ -7,8 +8,12 @@
   export let slideExtra;
   export let assets;
   
+  onMount(async () => {
+        debugger;
+    });
 </script>
 
+{#if assets}
 <SharedCanvasBase
   {currentTime}
 
@@ -20,3 +25,4 @@
   
   isEditorMode={false}
 />
+{/if}

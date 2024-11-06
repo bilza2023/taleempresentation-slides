@@ -1,6 +1,7 @@
 <script>
-  import {onMount} from "svelte";  
- import {CanvasPlayer} from "../../lib";
+
+ import {onMount} from "svelte";  
+ import SharedCanvasBase from "../../lib/canvasPlayer/SharedCanvasBase.svelte";
  import loadAssets from "../assets/loadAssets";
  import {slide as slideData} from "../../lib/demoSlides/canvasSlide";
   
@@ -10,8 +11,9 @@
  
  
 onMount(async()=>{
-  slide = slideData[0]; 
+  debugger;
   assets = await loadAssets();
+  slide = slideData[0]; 
 });
 
 </script>
@@ -26,16 +28,20 @@ slideExtra={slide.slideExtra}
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div class=" h-full w-full bg-gray-800 text-white p-0 m-0" >
 {#if slide && assets}
-      <CanvasPlayer 
-      {currentTime} 
-      
-      items={slide.items}        
-      slideData={slide.data}
-      slideExtra={slide.slideExtra} 
 
-      {assets}
-      setPulse={()=>{}}
-  />
+<SharedCanvasBase
+ 
+{currentTime} 
+      
+  items={slide.items}        
+  slideData={slide.data}
+  slideExtra={slide.slideExtra} 
+
+  {assets}
+  setPulse={()=>{}}
+  isEditorMode={false}
+
+/>
 
 {/if}
 </div>

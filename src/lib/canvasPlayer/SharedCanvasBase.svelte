@@ -122,6 +122,7 @@
   
     onMount(async () => {
       if (canvas) {
+        debugger;
         await initializeCanvas();
       }
     });
