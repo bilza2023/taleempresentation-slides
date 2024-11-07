@@ -15,16 +15,20 @@
 //@ts-nocheck
 
 import { onMount,onDestroy } from "svelte";  
-  import CanvasPlayer from "../canvasPlayer/CanvasPlayer.svelte";
-  
+import itemToObject from "../componentObjects/itemToObject";
+import CanvasPlayer from "../canvasPlayer/CanvasPlayer.svelte";
+import SelectedItem from "./SelectedItem";
+
   export let currentTime = 0; // pulse ???
   export let items; // items are currentSlide.items (it should just be slide)
   export let slideData; // items are currentSlide.items (it should just be slide)
   export let slideExtra;   //this should be slideExtra not to be confused with item.slideExtra
   export let assets;
-  
+  export let itemObjects = []; // Can be passed directly in editor mode
   let selectedItemIndex = 0; //this should not be export
- 
+
+  let selectedItem = new SelectedItem();
+
   let interval=null;
 
   onMount(async () => {
@@ -38,8 +42,32 @@ import { onMount,onDestroy } from "svelte";
 function update(){
     console.log("update");
 }
-
-
+///////--this code is from canvas-player
+function updateItemObjects(){
+      itemObjects = [];
+        for (let i = 0; i < items.length; i++) {
+          const item = items[i];
+          const itemObj = itemToObject(item, {}, assets.spriteImages);
+          if (itemObj) {
+            itemObjects.push(itemObj);
+          }
+        }
+        console.log("itemObjects",itemObjects);
+  }
+  $: {
+    debugger;
+    items;
+    updateItemObjects();
+  }
+  
+async function eventClick(e){
+  const isHit = await selectedItem.checkHit(e,itemObjects);
+  console.log("isHit",isHit);
+  
+}
+function postDraw(ctx){
+  selectedItem.drawHandles(ctx);
+}
 </script>
 
 {#if items}
@@ -51,6 +79,8 @@ function update(){
   {items}        
   slideExtra={slideExtra} 
   {assets}
+  eventClick={eventClick}
+  {postDraw}
   />
     
 </div>
