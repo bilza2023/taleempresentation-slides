@@ -1,4 +1,5 @@
 <script>
+
 /**
  * 7-Nov-2024 CanvasEditorPlayer is just a wrapper over CanvasPlayer. it is JUST A wrapper..so that it can edit "items" and they are displayed in CanvasPlayer. NO CHANGES IN CANVAS PLAYER.
  * DO NOT OPEN CanvasPlayer......!!!!!!!!!!!!!!!!!!
@@ -28,13 +29,13 @@ import SelectedItem from "./SelectedItem";
 
   let selectedItem = new SelectedItem();
   let interval=null;
+
   onMount(async () => {
-    interval = setInterval(update, 20); 
-    
+    interval = setInterval(update, 20);  
   });
+
   onDestroy(async () => {
     clearInterval(interval); 
-    
   });
 function update(){
     console.log("update");
@@ -49,7 +50,7 @@ function updateItemObjects(){
             itemObjects.push(itemObj);
           }
         }
-        console.log("itemObjects",itemObjects);
+        // console.log("itemObjects",itemObjects);
   }
   $: {
     items;
@@ -81,6 +82,7 @@ async function eventDblClick(e,ctx){
   const isHit = await selectedItem.checkHit(e,itemObjects,ctx);
   console.log("isHit",isHit,ctx);
 }
+
 </script>
 
 {#if items}
