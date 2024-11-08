@@ -15,36 +15,42 @@ constructor(itemObject){
 
     //moveXYbutton
     this.moveXYbutton = new EditButton(itemObject);
-
+    this.moveXYbutton.icon = '🧷';
+    
     //scaleXButton
     this.scaleXButton = new EditButton(itemObject);
     this.scaleXButton.color = 'blue';
     this.scaleXButton.offsetX  = -15;  
-
+    this.scaleXButton.icon = '🛶';
+    
     //scaleYButton
     this.scaleYButton = new EditButton(itemObject);
     this.scaleYButton.color = 'green';
     this.scaleYButton.offsetX  = -15;  
     this.scaleYButton.offsetY  = +15;  
+    this.scaleYButton.icon = '🐪';
     
-
+    
     //cloneButton
     this.cloneButton = new EditButton(itemObject);
     this.cloneButton.color = 'pink';
     this.cloneButton.offsetX  = -15;  
     this.cloneButton.offsetY  = +30;  
+    this.cloneButton.icon = '🐑';
     
     //copyButton
     this.copyButton = new EditButton(itemObject);
     this.copyButton.color = 'brown';
     this.copyButton.offsetX  = -15;  
     this.copyButton.offsetY  = +45;  
+    this.copyButton.icon = '📋';
     
     //deleteButton
     this.deleteButton = new EditButton(itemObject);
     this.deleteButton.color = 'red';
     this.deleteButton.offsetX  = -15;  
     this.deleteButton.offsetY  = +60;  
+    this.deleteButton.icon = '🗑️';
 
 
 }
