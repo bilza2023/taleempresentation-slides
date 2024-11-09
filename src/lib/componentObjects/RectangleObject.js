@@ -13,16 +13,16 @@ draw(ctx, currentTime) {
   ctx.save();
 // debugger;
   // Extract values
-  const x = getVal(currentTime, this.x);
-  const y = getVal(currentTime, this.y);
-  const width = getVal(currentTime, this.width);
-  const height = getVal(currentTime, this.height);
-  const color = getVal(currentTime, this.itemData.itemExtra.color) || 'white';
-  const filled = getVal(currentTime, this.itemData.itemExtra.filled) || true;
-  const dash = getVal(currentTime, this.itemData.itemExtra.dash) || 0;
-  const gap = getVal(currentTime, this.itemData.itemExtra.gap) || 0;
-  const lineWidth = getVal(currentTime, this.itemData.itemExtra.lineWidth) || 1;
-  const globalAlpha = getVal(currentTime, this.itemData.itemExtra.globalAlpha) || 1;
+  const x = this.x;
+  const y = this.y;
+  const width = this.width;
+  const height = this.height;
+  const color = this.itemData.itemExtra.color || 'white';
+  const filled = this.itemData.itemExtra.filled || true;
+  const dash = this.itemData.itemExtra.dash || 0;
+  const gap =  this.itemData.itemExtra.gap || 0;
+  const lineWidth =  this.itemData.itemExtra.lineWidth || 1;
+  const globalAlpha =  this.itemData.itemExtra.globalAlpha || 1;
 
   // Set properties
   ctx.lineWidth = lineWidth;

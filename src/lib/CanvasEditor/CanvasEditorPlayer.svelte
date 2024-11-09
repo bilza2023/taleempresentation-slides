@@ -6,8 +6,7 @@
   import AddToolbar from "./AddToolbar.svelte";
   import getNewItem from "./getNewItem";
   import getMouseData from "./getMouseData";
-  import uuid from "./uuid";
-  
+   
   export let currentTime = 0;
   export let items;
   export let slideData;

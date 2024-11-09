@@ -1,6 +1,6 @@
 // HandleManager.js
 import Handle from './Handle.js';
-
+ 
 export default class HandleManager {
     constructor(itemObject) {
 

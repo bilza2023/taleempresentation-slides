@@ -3,7 +3,7 @@ import HandleManager from './HandleManager.js';
 
 export default class SelectedItem {
     constructor(itemObject) {
-        
+         
         this.itemObject = itemObject;
         this.handleManager = new HandleManager(itemObject);
     }
