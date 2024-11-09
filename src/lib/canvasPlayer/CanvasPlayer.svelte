@@ -17,7 +17,7 @@
   
   import { onMount, onDestroy } from "svelte";
   import DrawLib from "../drawLib/drawLib";
-  import itemToObject from "../componentObjects/itemToObject";
+  import itemToObject from "../itemObjects/itemToObject";
 
     // Common props
     export let currentTime;
@@ -61,7 +61,7 @@
       itemObjects = [];
         for (let i = 0; i < items.length; i++) {
           const item = items[i];
-          const itemObj = itemToObject(item, fnList, assets.spriteImages);
+          const itemObj = itemToObject(item,assets);
           if (itemObj) {
             itemObjects.push(itemObj);
           }

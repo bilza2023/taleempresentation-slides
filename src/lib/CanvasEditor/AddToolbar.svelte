@@ -13,13 +13,13 @@ export let addNewItem;
 <div class="flex">
 
     <!-- Core methods -->
-    <SmallBtnToolbar clk={()=>addNewItem(addLine)} icon={icons.LINE} title="Line" />
-    <SmallBtnToolbar clk={()=>addNewItem(addCircle)} icon={icons.CIRCLE} title="Circle" />
-    <SmallBtnToolbar clk={()=>addNewItem(addEllipse)} icon={icons.ELLIPSE} title="Ellipse" />
     <SmallBtnToolbar clk={()=>addNewItem(addRect)} icon={icons.RECTANGLE} title="Rect" />
-    <!-- <SmallBtnToolbar clk={()=>addBezier(items)} icon={icons.BAZIER} title="Bezier" /> -->
-    <SmallBtnToolbar clk={()=>addNewItem(addText)} icon={icons.TEXT} title="Text" />
-    <SmallBtnToolbar clk={()=>addNewItem(addPara)} icon={icons.TEMPLATE} title="Para" />
+    <SmallBtnToolbar clk={()=>addNewItem(addCircle)} icon={icons.CIRCLE} title="Circle" />
+        <SmallBtnToolbar clk={()=>addNewItem(addEllipse)} icon={icons.ELLIPSE} title="Ellipse" />
+        <!-- <SmallBtnToolbar clk={()=>addBezier(items)} icon={icons.BAZIER} title="Bezier" /> -->
+        <SmallBtnToolbar clk={()=>addNewItem(addText)} icon={icons.TEXT} title="Text" />
+        <SmallBtnToolbar clk={()=>addNewItem(addPara)} icon={icons.TEMPLATE} title="Para" />
+        <SmallBtnToolbar clk={()=>addNewItem(addLine)} icon={icons.LINE} title="Line" />
 
     <!-- Extended from Core -->
     <SmallBtnToolbar clk={()=>addNewItem(addTri)} icon={icons.TRIANGE} title="Tri" />

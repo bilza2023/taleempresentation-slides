@@ -2,13 +2,13 @@
 export default class Handle {
   constructor(position = 'center', options = {}) {
       this.position = position; //center
-      this.size = options.size || 10;
+      this.size = options.size || 15;
       this.color = options.color || '#1a73e8';
       this.hoverColor = options.hoverColor || '#64b5f6';
       this.isHovered = false;
       this.cursor = options.cursor || 'pointer';
       this.icon = options.icon || null;
-  }
+  } 
 
   getPosition(bounds) {
       const { x, y, width, height } = bounds;

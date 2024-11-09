@@ -52,23 +52,23 @@ export default class CircleObject extends ComponentObject {
   
 ////////////////////////////////////////////////////////////////////
 width(){
-    return this.itemData.itemExtra.radius.initialValue * 2;
+    return this.itemData.itemExtra.radius * 2;
  }
  height(){
-    return this.itemData.itemExtra.radius.initialValue * 2;
+    return this.itemData.itemExtra.radius * 2;
  }
  getX(){
-    return this.itemData.itemExtra.x.initialValue;
+    return this.itemData.itemExtra.x;
  }
  
  getY(){
-    return this.itemData.itemExtra.y.initialValue;
+    return this.itemData.itemExtra.y;
  }
 ////////////////////////////////////////////////////////////////////
 isHit(mouseX, mouseY) {
     const centerX = this.getX();
     const centerY = this.getY();
-    const radius = this.itemData.itemExtra.radius.initialValue;
+    const radius = this.itemData.itemExtra.radius;
 
     // Calculate the distance between the mouse click and the center of the circle
     const distance = Math.sqrt(
