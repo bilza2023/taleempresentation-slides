@@ -5,10 +5,6 @@ import Handle from './Handle';
  * 6-sep-2024
  * it takes item data for super and property for its self
  * 
- * 
- * 
- * 
- * 
  */
 
 export default class AdderHandle extends Handle {
