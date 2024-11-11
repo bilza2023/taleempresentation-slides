@@ -1,5 +1,7 @@
  //@ts-nocheck
 import ItemObject from './ItemObject';
+// import { ctxStore } from '../store';
+// import { get } from 'svelte/store';
 
 export default class EllipseObject extends ItemObject {
     constructor(itemData , fnList) {
@@ -9,7 +11,9 @@ export default class EllipseObject extends ItemObject {
     draw(ctx) {
       // Save the current context state
       ctx.save();
-  
+// This is a line that uses ctx from store just keep it here for later use      
+        // get(ctxStore).fillRect(0, 0, 100, 100);
+
       // Extract values
       const x = this.itemData.itemExtra.x;
       const y = this.itemData.itemExtra.y;
@@ -55,24 +59,18 @@ export default class EllipseObject extends ItemObject {
     boundingRectangleX() {
         return this.itemData.itemExtra.x - this.itemData.itemExtra.radiusX;
     }
-    
     boundingRectangleY() {
         return this.itemData.itemExtra.y - this.itemData.itemExtra.radiusY;
     }
-
- 
      get width() {
         return this.itemData.itemExtra.radiusX * 2;
     }
-  
     set width(newWidth) {
         this.itemData.itemExtra.radiusX = newWidth/2;
     }
-  
     get height() {
         return this.itemData.itemExtra.radiusY * 2;
     }
-  
     set height(newHeight) {
         this.itemData.itemExtra.radiusY = newHeight/2;
     }

@@ -86,6 +86,7 @@ function addText( ){
     "x": 100,
     "y": 100,
     "fontSize": 20,
+    "fontFamily": 'Arial',
     "font": "20px Arial",
   };
 return  addReqExtraFields(obj,"text","black") 
@@ -94,7 +95,7 @@ return  addReqExtraFields(obj,"text","black")
   const obj = { 
     "x":          100,
     "y":          100,
-    "radiusX":    100,
+    "radiusX":    50,
     "radiusY":    100,
     "rotation":   0,
     "startAngle": 0,
@@ -278,6 +279,7 @@ return  addReqExtraFields(obj,"text","black")
       "y": 100,
       "font": "20px Arial",
       "fontSize": 20,
+      "fontFamil": 'Arial',
       "lineHeightOffset" : 10,
       "xOffset"        : 10,
   };

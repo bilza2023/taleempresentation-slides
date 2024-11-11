@@ -18,10 +18,9 @@
   import { onMount, onDestroy } from "svelte";
   import DrawLib from "../drawLib/drawLib";
   import itemToObject from "../itemObjects/itemToObject";
-
+  import { ctxStore } from '../store';
     // Common props
     export let currentTime;
-    export let slideData={}; // ? why is this not used?? 
     export let items = []; // Optional for editor mode
     export let slideExtra = {};
     export let assets;
@@ -125,6 +124,8 @@
       if (interval) { clearInterval(interval);}
       
       ctx = canvas.getContext("2d");
+      //----very important line.. 1 line changed on 11-Nov-2024 but is very important since now we have ctx in the store
+      $ctxStore = ctx;
       // const scale = canvas.width / canvas.getBoundingClientRect().width;
       drawLib = new DrawLib(canvas, ctx);//just used twice we can remove drawLib if we want
       isInitialized = true;

@@ -36,6 +36,7 @@ export default class SelectedItem {
     }
 
     drawHandles(ctx) {
+        // debugger;
         const bounds = this.itemObject.getBounds();
 
         // Draw selection rectangle
@@ -83,11 +84,12 @@ export default class SelectedItem {
                 break;
 
             case 'heightHandle':
-                this.itemObject.height = Math.max(10, this.startBounds.height + dy);
+                this.itemObject.height =  this.startBounds.height + dy;
+                
                 break;
 
             case 'widthHandle':
-                this.itemObject.width = Math.max(10, this.startBounds.width + dx);
+                this.itemObject.width =  this.startBounds.width + dx;
                 break;
         }
 

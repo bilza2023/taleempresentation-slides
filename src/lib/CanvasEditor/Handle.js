@@ -29,6 +29,7 @@ export default class Handle {
   }
 
   draw(ctx, bounds) {
+    // debugger;
       const pos = this.getPosition(bounds);
       const halfSize = this.size / 2;
 
