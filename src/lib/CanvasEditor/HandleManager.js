@@ -48,7 +48,7 @@ export default class HandleManager {
     addHandle(id, handle) {
         this.handles.set(id, handle);
     }
-/// This is the place that needs to be changed.
+/// This is the place that needs to be changed.????
     getBounds() {
         return {
             x: this.itemObject.x,

@@ -1,4 +1,5 @@
 // Handle.js
+
 export default class Handle {
   constructor(position = 'center', options = {}) {
       this.position = position; //center
