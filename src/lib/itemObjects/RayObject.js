@@ -2,8 +2,8 @@
 import ItemObject from './ItemObject';
 
 export default class RayObject extends ItemObject {
-    constructor(itemData=null, fnList={}) {
-        super(itemData, fnList);
+    constructor(itemData=null, assets) {
+        super(itemData, assets);
     }
 
     // Draw arrow head helper function

@@ -42,7 +42,7 @@
       itemObjects = [];
       for (let i = 0; i < items.length; i++) {
           const item = items[i];
-          const itemObj = itemToObject(item, {}, assets.spriteImages);
+          const itemObj = itemToObject(item, assets);
           if (itemObj) {
               itemObjects.push(itemObj);
           }

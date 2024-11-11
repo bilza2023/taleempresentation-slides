@@ -343,10 +343,10 @@ return  addReqExtraFields(obj,"text","black")
       "spriteId": "000",
       "sheet": "students",
       "sheetItem": "student_w_tablet",
-      "dx": 100,
-      "dy": 100,
-      "wFactor" : 0.5,
-      "hFactor" : 0.5,
+      "x": 100,
+      "y": 100,
+      "width" : 0.5,
+      "height" : 0.5,
     };
   return  addReqExtraFields(obj,"sprite","red"); 
   }

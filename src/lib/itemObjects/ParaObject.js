@@ -2,8 +2,8 @@
 import ItemObject from './ItemObject';
 
 export default class ParaObject extends ItemObject {
-    constructor(itemData , fnList) {
-        super(itemData , fnList);
+    constructor(itemData , assets) {
+        super(itemData , assets);
     this._width =  50;       
     this._height =  25;      
     }

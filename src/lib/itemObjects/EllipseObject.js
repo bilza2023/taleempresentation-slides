@@ -4,8 +4,8 @@ import ItemObject from './ItemObject';
 // import { get } from 'svelte/store';
 
 export default class EllipseObject extends ItemObject {
-    constructor(itemData , fnList) {
-        super(itemData , fnList);
+    constructor(itemData , assets) {
+        super(itemData , assets);
     }
 
     draw(ctx) {

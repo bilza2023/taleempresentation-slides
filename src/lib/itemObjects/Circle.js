@@ -2,8 +2,8 @@
 import ItemObject from './ItemObject';
 
 export default class Circle extends ItemObject {
-    constructor(itemData , fnList) {
-        super(itemData , fnList);
+    constructor(itemData , assets) {
+        super(itemData , assets);
 }
 
     draw(ctx) {

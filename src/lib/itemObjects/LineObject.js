@@ -2,8 +2,8 @@
 import ItemObject from './ItemObject';
 
 export default class LineObject extends ItemObject {
-    constructor(itemData=null , fnList={}) {
-        super(itemData , fnList);
+    constructor(itemData=null , assets) {
+        super(itemData , assets);
     }
 
 ///////////////////////////////////////////////////////////////////////////
