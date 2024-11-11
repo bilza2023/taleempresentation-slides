@@ -35,10 +35,6 @@ export default class SelectedItem {
         this.handles.set(id, handle);
     }
 
-    getBounds() {
-        return this.itemObject.getBounds();
-    }
-
     drawHandles(ctx) {
         const bounds = this.getBounds();
 
@@ -54,7 +50,7 @@ export default class SelectedItem {
     }
 
     mouseDown(x, y) {
-        const bounds = this.getBounds();
+        const bounds = this.itemObject.getBounds();
         this.startPos = { x, y };
         this.startBounds = { ...bounds };
 
