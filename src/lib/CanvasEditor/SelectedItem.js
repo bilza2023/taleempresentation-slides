@@ -1,5 +1,5 @@
 // SelectedItem.svelte
-import Handle from "./Handle";
+import Handle from './Handle.js';
 
 export default class SelectedItem {
     constructor(itemObject) {
@@ -36,12 +36,7 @@ export default class SelectedItem {
     }
 
     getBounds() {
-        return {
-            x: this.itemObject.x,
-            y: this.itemObject.y,
-            width: this.itemObject.width,
-            height: this.itemObject.height
-        };
+        return this.itemObject.getBounds();
     }
 
     drawHandles(ctx) {
@@ -84,6 +79,7 @@ export default class SelectedItem {
         const dx = x - this.startPos.x;
         const dy = y - this.startPos.y;
 
+        // Use startBounds for calculations
         switch (this.activeHandle) {
             case 'move':
                 this.itemObject.x = this.startBounds.x + dx;

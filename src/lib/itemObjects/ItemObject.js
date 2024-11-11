@@ -18,13 +18,25 @@ export default class ItemObject {
       console.log("ComponentObject draw");
   }
 
+
+  getBounds() {
+    return {
+        x: this.x,
+        y: this.y,
+        width: this.width,
+        height: this.height
+    };
+  }
+  
+  // Modify isHit to use getBounds
   isHit(mouseX, mouseY) {
-      return (
-          mouseX >= this.x &&
-          mouseX <= this.x + this.width &&
-          mouseY >= this.y &&
-          mouseY <= this.y + this.height
-      );
+    const bounds = this.getBounds();
+    return (
+        mouseX >= bounds.x &&
+        mouseX <= bounds.x + bounds.width &&
+        mouseY >= bounds.y &&
+        mouseY <= bounds.y + bounds.height
+    );
   }
 
   // Position getters and setters
