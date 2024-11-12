@@ -20,7 +20,6 @@
   import itemToObject from "../itemObjects/itemToObject";
   import { ctxStore } from '../store';
     // Common props
-    export let currentTime;
     export let items = []; // Optional for editor mode
     export let slideExtra = {};
     export let assets;
@@ -106,11 +105,12 @@
   
         for (let i = 0; i < itemObjects.length; i++) {
           const item = itemObjects[i];
-          if (item.isVisible(currentTime)) {
+          //This is where infally currentTime was being used in the canvas module i am trying to remove every thing that i can later implement as a simple .js object does not need to be here" 12-nov-2024 
+          // if (item.isVisible(current Time)) {
             preDraw(drawLib.ctx);   
-            item.draw(drawLib.ctx, currentTime, slideExtra);
+            item.draw(drawLib.ctx);
             postDraw(drawLib.ctx);   
-          }
+          // }
         }
   
       } catch (error) {

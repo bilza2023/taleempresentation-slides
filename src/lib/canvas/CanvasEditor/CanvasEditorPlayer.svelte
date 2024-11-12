@@ -1,4 +1,11 @@
 <script>
+    /**
+     * 12-Nov-2023
+     * This is a wrapper around CanvasPlayer. It provide 
+     *  - Selecting items
+     *  - Adding new items
+     *  - move and scalex and y
+    */
   import { onMount, onDestroy } from "svelte";
   import itemToObject from "../itemObjects/itemToObject";
   import CanvasPlayer from "../canvasPlayer/CanvasPlayer.svelte";
@@ -7,7 +14,6 @@
   import getNewItem from "./getNewItem";
   import getMouseData from "./getMouseData";
 
-  export let currentTime = 0;
   export let items;
   export let slideData;
   export let slideExtra;
@@ -125,7 +131,6 @@
       {/if}
       <div class='p-0 m-0 bg-stone-900'>
           <CanvasPlayer
-              {currentTime}
               slideData={slideData}
               {items}
               slideExtra={slideExtra}

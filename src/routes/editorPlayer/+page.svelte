@@ -1,5 +1,5 @@
 <script>
-  import {CanvasEditor}  from "$lib";
+  import CanvasEditorPlayer  from "../../lib/canvas/CanvasEditor/CanvasEditorPlayer.svelte";
   import {onMount} from "svelte";
 
   // import audioData from "./audioData.js";
@@ -26,8 +26,9 @@ onMount(async()=>{
 <div class="w-full bg-gray-700 text-white p-2 min-h-screen ">
 
 {#if slides && assets}
-  <CanvasEditor
+  <CanvasEditorPlayer
 
+   {currentTime}
    bind:items = {slide.items}
    slideExtra = {slide.slideExtra}
    {assets}

@@ -6,15 +6,17 @@ export default class ItemObject {
       this.assets = assets;
   }
 
-  isVisible(currentTime) {
-      if (!this.itemData.itemExtra.showAt) {
-          return true;
-      }
-      return currentTime >= this.itemData.itemExtra.showAt;
+  isVisible() {
+    //not implemented yet since i want to remove the currentTime out of canvas module
+    return true;
+    //   if (!this.itemData.itemExtra.showAt) {
+    //       return true;
+    //   }
+    //   return currentTime >= this.itemData.itemExtra.showAt;
   }
 
   // eslint-disable-next-line no-unused-vars
-  draw(ctx, currentTime = 0) {
+  draw(ctx) {
       console.log("ComponentObject draw");
   }
 

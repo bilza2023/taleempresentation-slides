@@ -8,6 +8,9 @@
     <ul class="space-y-6 text-lg font-semibold">
       <li><a href="/player" class="block border-b border-white pb-2 text-green-600">Player</a></li>
       
+      <li><a href="/editorPlayer" class="block border-b border-white pb-2 text-orange-700">editorPlayer:&nbsp; <span class="text-gray-300 text-xs">Editor to create and edit Presentations</span></a></li>
+
+      
       <li><a href="/editor" class="block border-b border-white pb-2 text-orange-700">Editor:&nbsp; <span class="text-gray-300 text-xs">Editor to create and edit Presentations</span></a></li>
 
 
