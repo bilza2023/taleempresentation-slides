@@ -5,13 +5,12 @@
   // import audioData from "./audioData.js";
   import {slides as defaultSlide} from "./slides.js";
   import loadAssets from "../assets/loadAssets";
-  let currentTime=0;
 
   // import AppToolbar from "./AppToolbar.svelte";
   let slides = defaultSlide;
   let slide = slides[0];
-  let showToolbar=true;
- let assets=null;
+  let showAddToolbar = true;
+  let assets=null;
 
 function newPresentation(){
 slides = defaultSlide;
@@ -31,7 +30,7 @@ onMount(async()=>{
    bind:items = {slide.items}
    slideExtra = {slide.slideExtra}
    {assets}
-   showAddToolbar = {true}
+   {showAddToolbar}
   />
 
 {/if}
