@@ -193,19 +193,7 @@ boundingRectangleX() {
   }
   
   set width(newWidth) {
-    const x1 = this.itemData.itemExtra.x1;
-    const x2 = this.itemData.itemExtra.x2;
-    const currentWidth = this.width;
-    
-    // If width is 0, don't scale
-    if (currentWidth === 0) return;
-    
-    const scale = newWidth / currentWidth;
-    const leftX = this.boundingRectangleX();
-    
-    // Scale from the leftmost point
-    this.itemData.itemExtra.x1 = leftX + (x1 - leftX) * scale;
-    this.itemData.itemExtra.x2 = leftX + (x2 - leftX) * scale;
+    this.itemData.itemExtra.x2 += newWidth;
   }
   
   get height() {
@@ -215,19 +203,7 @@ boundingRectangleX() {
   }
   
   set height(newHeight) {
-    const y1 = this.itemData.itemExtra.y1;
-    const y2 = this.itemData.itemExtra.y2;
-    const currentHeight = this.height;
-    
-    // If height is 0, don't scale
-    if (currentHeight === 0) return;
-    
-    const scale = newHeight / currentHeight;
-    const topY = this.boundingRectangleY();
-    
-    // Scale from the topmost point
-    this.itemData.itemExtra.y1 = topY + (y1 - topY) * scale;
-    this.itemData.itemExtra.y2 = topY + (y2 - topY) * scale;
+    this.itemData.itemExtra.y2 += newHeight;
   }    
 ///////////////////////////////////////////////////////////////////////////
     

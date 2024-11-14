@@ -4,6 +4,81 @@ import ItemObject from './ItemObject';
 export default class PieChartObject extends ItemObject {
     constructor(itemData, assets) {
         super(itemData, assets);
+        this.dialogueBox = [
+            {
+              componentName: 'TrTextArea',
+              title: 'data',
+            },
+            {
+              componentName: 'TrPropNumber',
+              title: 'x',
+              props: {
+                min: 0,
+                max: 1000
+              }
+            },
+            {
+              componentName: 'TrPropNumber',
+              title: 'y',
+              props: {
+                min: 0,
+                max: 500
+              }
+            },
+            {
+              componentName: 'TrPropNumber',
+              title: 'radius',
+              props: {
+                min: 0,
+                max: 500
+              }
+            },
+          
+            // CommonCommands
+            {
+              componentName: 'TrText',
+              title: 'name',
+              props: {}
+            },
+            
+            {
+              componentName: 'TrNo',
+              title: 'showAt',
+              props: {}
+            },
+            {
+              componentName: 'TrPropNumber',
+              title: 'globalAlpha',
+              props: {
+                min: '0.0',
+                max: '1.0',
+                step: '0.1'
+              }
+            },
+            // gap-dash
+          
+            // shadow
+            {
+              componentName: 'TrNo',
+              title: 'shadowOffsetX',
+              props: {}
+            },
+            {
+              componentName: 'TrNo',
+              title: 'shadowOffsetY',
+              props: {}
+            },
+            {
+              componentName: 'TrNo',
+              title: 'shadowBlur',
+              props: {}
+            },
+            {
+              componentName: 'TrColor',
+              title: 'shadowColor',
+              props: {}
+            }
+          ];
     }
 
     draw(ctx) {
@@ -94,12 +169,7 @@ export default class PieChartObject extends ItemObject {
     }
 
     set width(newWidth) {
-        // Adjust radius based on new width (accounting for label padding)
-        const labelPadding = 20;
-        const newRadius = (newWidth / 2) - labelPadding;
-        if (newRadius > 0) {
-            this.itemData.itemExtra.radius = newRadius;
-        }
+        this.itemData.itemExtra.radius += newWidth;
     }
 
     get height() {
@@ -110,11 +180,6 @@ export default class PieChartObject extends ItemObject {
     }
 
     set height(newHeight) {
-        // Adjust radius based on new height (accounting for label padding)
-        const labelPadding = 20;
-        const newRadius = (newHeight / 2) - labelPadding;
-        if (newRadius > 0) {
-            this.itemData.itemExtra.radius = newRadius;
-        }
+            this.itemData.itemExtra.radius += newHeight;
     }
 }

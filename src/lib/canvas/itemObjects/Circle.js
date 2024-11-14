@@ -194,7 +194,7 @@ get width() {
 }
 
 set width(newWidth) {
-    this.itemData.itemExtra.radius = newWidth;
+    this.itemData.itemExtra.radius += newWidth;
 }
 
 get height() {
@@ -202,7 +202,7 @@ get height() {
 }
 
 set height(newHeight) {
-    this.itemData.itemExtra.radius = newHeight;
+    this.itemData.itemExtra.radius += newHeight;
 }
 
 ////////////////////////////////////////////////////////////////////

@@ -146,14 +146,14 @@ export default class ParaObject extends ItemObject {
       return this._width;
     }
     set width(newWidth) {
-        this.itemData.itemExtra.fontSize = newWidth;
+        this.itemData.itemExtra.fontSize += newWidth;
     }
     get height() {
       return this._height;
     }
   
     set height(newHeight) {
-        this.itemData.itemExtra.fontSize = newHeight;
+        this.itemData.itemExtra.fontSize += newHeight;
     }
     
 }//class

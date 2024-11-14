@@ -209,35 +209,64 @@ export default class RayObject extends ItemObject {
         return Math.abs(this.itemData.itemExtra.x1 - this.itemData.itemExtra.x0);
     }
 
-    set width(newWidth) {
-        const x0 = this.itemData.itemExtra.x0;
-        const x1 = this.itemData.itemExtra.x1;
-        const currentWidth = this.width;
+    set width(deltaWidth) {
+      // If deltaWidth is 0, no change needed
+      if (deltaWidth === 0) return;
+  
+      // Get the leftmost x coordinate as reference point
+      const leftX = this.boundingRectangleX();
+  
+      // Calculate the scale factor for a small increment/decrement
+      const scale = (this.width + deltaWidth) / this.width;
+  
+      // Scale each point's distance from the left edge
+      this.itemData.itemExtra.x0 = leftX + (this.itemData.itemExtra.x0 - leftX) * scale;
+      this.itemData.itemExtra.x1 = leftX + (this.itemData.itemExtra.x1 - leftX) * scale;
+  }
+  
+  set height(deltaHeight) {
+      // If deltaHeight is 0, no change needed
+      if (deltaHeight === 0) return;
+  
+      // Get the topmost y coordinate as reference point
+      const topY = this.boundingRectangleY();
+  
+      // Calculate the scale factor for a small increment/decrement
+      const scale = (this.height + deltaHeight) / this.height;
+  
+      // Scale each point's distance from the top edge
+      this.itemData.itemExtra.y0 = topY + (this.itemData.itemExtra.y0 - topY) * scale;
+      this.itemData.itemExtra.y1 = topY + (this.itemData.itemExtra.y1 - topY) * scale;
+  }
+    // set width(newWidth) {
+    //     const x0 = this.itemData.itemExtra.x0;
+    //     const x1 = this.itemData.itemExtra.x1;
+    //     const currentWidth = this.width;
         
-        if (currentWidth === 0) return;
+    //     if (currentWidth === 0) return;
         
-        const scale = newWidth / currentWidth;
-        const leftX = this.boundingRectangleX();
+    //     const scale = newWidth / currentWidth;
+    //     const leftX = this.boundingRectangleX();
         
-        this.itemData.itemExtra.x0 = leftX + (x0 - leftX) * scale;
-        this.itemData.itemExtra.x1 = leftX + (x1 - leftX) * scale;
-    }
+    //     this.itemData.itemExtra.x0 = leftX + (x0 - leftX) * scale;
+    //     this.itemData.itemExtra.x1 = leftX + (x1 - leftX) * scale;
+    // }
 
     get height() {
         return Math.abs(this.itemData.itemExtra.y1 - this.itemData.itemExtra.y0);
     }
 
-    set height(newHeight) {
-        const y0 = this.itemData.itemExtra.y0;
-        const y1 = this.itemData.itemExtra.y1;
-        const currentHeight = this.height;
+    // set height(newHeight) {
+    //     const y0 = this.itemData.itemExtra.y0;
+    //     const y1 = this.itemData.itemExtra.y1;
+    //     const currentHeight = this.height;
         
-        if (currentHeight === 0) return;
+    //     if (currentHeight === 0) return;
         
-        const scale = newHeight / currentHeight;
-        const topY = this.boundingRectangleY();
+    //     const scale = newHeight / currentHeight;
+    //     const topY = this.boundingRectangleY();
         
-        this.itemData.itemExtra.y0 = topY + (y0 - topY) * scale;
-        this.itemData.itemExtra.y1 = topY + (y1 - topY) * scale;
-    }
+    //     this.itemData.itemExtra.y0 = topY + (y0 - topY) * scale;
+    //     this.itemData.itemExtra.y1 = topY + (y1 - topY) * scale;
+    // }
 }

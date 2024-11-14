@@ -131,7 +131,7 @@ get width() {
 }
 
 set width(newWidth) {
-    this.itemData.itemExtra.dot_width = newWidth;
+    this.itemData.itemExtra.dot_width += newWidth;
 }
 
 get height() {
@@ -139,7 +139,7 @@ get height() {
 }
 
 set height(newHeight) {
-    this.itemData.itemExtra.text_size = newHeight;
+    this.itemData.itemExtra.text_size += newHeight;
 }
 
 ////////////////////////////////////////////////////////////

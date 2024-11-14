@@ -210,19 +210,23 @@ set y(newY) {
         return Math.max(x1, x2, x3) - Math.min(x1, x2, x3);
     }
 
-    set width(newWidth) {
-        // Calculate current width and scale factor
-        const currentWidth = this.width;
-        const scale = newWidth / currentWidth;
-        
-        // Get the leftmost x coordinate as reference point
-        const leftX = this.boundingRectangleX();
-        
-        // Scale each point's distance from the left edge
-        this.itemData.itemExtra.x1 = leftX + (this.itemData.itemExtra.x1 - leftX) * scale;
-        this.itemData.itemExtra.x2 = leftX + (this.itemData.itemExtra.x2 - leftX) * scale;
-        this.itemData.itemExtra.x3 = leftX + (this.itemData.itemExtra.x3 - leftX) * scale;
-    }
+    set width(deltaWidth) {
+      // If deltaWidth is 0, no change needed
+      if (deltaWidth === 0) return;
+      
+      // Get the leftmost x coordinate as reference point
+      const leftX = this.boundingRectangleX();
+      
+      // Calculate the scale factor for a small increment/decrement
+      // For example, if current width is 100 and deltaWidth is 1, 
+      // scale would be 1.01 (1% increase)
+      const scale = (this.width + deltaWidth) / this.width;
+      
+      // Scale each point's distance from the left edge
+      this.itemData.itemExtra.x1 = leftX + (this.itemData.itemExtra.x1 - leftX) * scale;
+      this.itemData.itemExtra.x2 = leftX + (this.itemData.itemExtra.x2 - leftX) * scale;
+      this.itemData.itemExtra.x3 = leftX + (this.itemData.itemExtra.x3 - leftX) * scale;
+  }
 
     get height() {
         const y1 = this.itemData.itemExtra.y1;
@@ -232,17 +236,21 @@ set y(newY) {
         return Math.max(y1, y2, y3) - Math.min(y1, y2, y3);
     }
 
-    set height(newHeight) {
-        // Calculate current height and scale factor
-        const currentHeight = this.height;
-        const scale = newHeight / currentHeight;
-        
-        // Get the topmost y coordinate as reference point
-        const topY = this.boundingRectangleY();
-        
-        // Scale each point's distance from the top edge
-        this.itemData.itemExtra.y1 = topY + (this.itemData.itemExtra.y1 - topY) * scale;
-        this.itemData.itemExtra.y2 = topY + (this.itemData.itemExtra.y2 - topY) * scale;
-        this.itemData.itemExtra.y3 = topY + (this.itemData.itemExtra.y3 - topY) * scale;
-    }
+    set height(deltaHeight) {
+      // If deltaHeight is 0, no change needed
+      if (deltaHeight === 0) return;
+      
+      // Get the topmost y coordinate as reference point
+      const topY = this.boundingRectangleY();
+      
+      // Calculate the scale factor for the small increment/decrement
+      // For example, if current height is 100 and deltaHeight is 1,
+      // scale would be 1.01 (1% increase)
+      const scale = (this.height + deltaHeight) / this.height;
+      
+      // Scale each point's distance from the top edge
+      this.itemData.itemExtra.y1 = topY + (this.itemData.itemExtra.y1 - topY) * scale;
+      this.itemData.itemExtra.y2 = topY + (this.itemData.itemExtra.y2 - topY) * scale;
+      this.itemData.itemExtra.y3 = topY + (this.itemData.itemExtra.y3 - topY) * scale;
+  }
 }

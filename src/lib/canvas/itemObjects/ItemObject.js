@@ -70,17 +70,17 @@ export default class ItemObject {
   get width() {
       return this.itemData.itemExtra.width;
   }
-
+//because we expect to get dx and dy
   set width(newWidth) {
-      this.itemData.itemExtra.width = newWidth;
+      this.itemData.itemExtra.width += newWidth;
   }
 
   get height() {
       return this.itemData.itemExtra.height;
   }
-
+//because we expect to get dx and dy
   set height(newHeight) {
-      this.itemData.itemExtra.height = newHeight;
+      this.itemData.itemExtra.height += newHeight;
   }
 
   // Properties getters and setters

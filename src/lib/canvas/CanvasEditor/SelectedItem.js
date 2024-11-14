@@ -14,8 +14,8 @@ export default class SelectedItem {
 
     initializeHandles() {
         const move = new Handle(
-            () => (this.itemObject.boundingRectangleX() + (this.itemObject.width / 2)) - 10,
-            () => (this.itemObject.boundingRectangleY() + (this.itemObject.height / 2)) - 10,
+            () => (this.itemObject.boundingRectangleX() ) - 10,
+            () => (this.itemObject.boundingRectangleY() ) - 10,
             '✥', 'green'
         );
         this.handles.push(move);
@@ -79,29 +79,44 @@ export default class SelectedItem {
         return false;
     }
 
-    mouseMove(x, y) {
-        if (!this.isDrag) return false;
+mouseMove(x, y) {
+    if (!this.isDrag) return false;
 
-        const dx = x - this.startPositionX;
-        const dy = y - this.startPositionY;
+    const dx = x - this.startPositionX;
+    const dy = y - this.startPositionY;
+    // Determine direction of horizontal and vertical movement
+    const isMovingRight = dx > 0;
+    const isMovingLeft = dx < 0;
+    const isMovingDown = dy > 0;
+    const isMovingUp = dy < 0;
 
-        switch (this.selectedHandle) {
-            case 'move':
-                this.itemObject.x = x;
-                this.itemObject.y = y;
-                break;
-            case 'widen':
-                this.itemObject.width += dx; // Use dx for smoother resizing
-                this.startPositionX = x; // Update start position for next movement
-                break;
-            case 'heighten':
-                this.itemObject.height += dy; // Use dy for smoother resizing
-                this.startPositionY = y;
-                break;
-        }
-
-        return true;
+    switch (this.selectedHandle) {
+        case 'move':
+            this.itemObject.x = x;
+            this.itemObject.y = y;
+            break;
+        case 'widen':
+            // Add or subtract 1 based on horizontal direction
+            if (isMovingRight) {
+                this.itemObject.width = dx;
+            } else if (isMovingLeft) {
+                this.itemObject.width = dx;
+            }
+            this.startPositionX = x;
+            break;
+        case 'heighten':
+            // Add or subtract 1 based on vertical direction
+            if (isMovingDown) {
+                this.itemObject.height = dy;
+            } else if (isMovingUp) {
+                this.itemObject.height = dy;
+            }
+            this.startPositionY = y;
+            break;
     }
+
+    return true;
+}
 
     mouseUp() {
         this.isDrag = false;

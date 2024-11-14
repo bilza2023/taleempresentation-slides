@@ -258,7 +258,7 @@ get width() {
 
 
 set width(newWidth) {
-    this.itemData.itemExtra.fontSize = newWidth;
+    this.itemData.itemExtra.fontSize += newWidth;
 }
 get height() {
 
@@ -270,7 +270,7 @@ get height() {
     return textHeight + iconHeight;
 }
 set height(newHeight){
-    this.itemData.itemExtra.iconSize = newHeight;
+    this.itemData.itemExtra.iconSize += newHeight;
 }
 ////////////////////////////////////////////////////////////
     

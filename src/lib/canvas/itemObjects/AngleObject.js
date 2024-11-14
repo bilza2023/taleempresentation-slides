@@ -183,11 +183,7 @@ export default class AngleObject extends ItemObject {
     }
 
     set width(newWidth) {
-        // Adjust radius based on new width (accounting for tick marks)
-        const newRadius = (newWidth / 2) - 10;
-        if (newRadius > 0) {
-            this.itemData.itemExtra.radius = newRadius;
-        }
+            this.itemData.itemExtra.radius += newWidth;
     }
 
     get height() {
@@ -197,10 +193,6 @@ export default class AngleObject extends ItemObject {
     }
 
     set height(newHeight) {
-        // Adjust radius based on new height (accounting for tick marks)
-        const newRadius = (newHeight / 2) - 10;
-        if (newRadius > 0) {
-            this.itemData.itemExtra.radius = newRadius;
-        }
+            this.itemData.itemExtra.radius += newHeight;
     }
 }

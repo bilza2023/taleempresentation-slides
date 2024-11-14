@@ -194,13 +194,13 @@ export default class EllipseObject extends ItemObject {
         return this.itemData.itemExtra.radiusX * 2;
     }
     set width(newWidth) {
-        this.itemData.itemExtra.radiusX = newWidth/2;
+      this.itemData.itemExtra.radiusX += newWidth;
     }
     get height() {
         return this.itemData.itemExtra.radiusY * 2;
     }
     set height(newHeight) {
-        this.itemData.itemExtra.radiusY = newHeight/2;
+      this.itemData.itemExtra.radiusY += newHeight;
     }
   
 
