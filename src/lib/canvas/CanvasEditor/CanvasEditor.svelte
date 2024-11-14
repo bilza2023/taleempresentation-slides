@@ -16,7 +16,10 @@
     export let showAddToolbar = true;
 //--very important    
     let selectedItem = null;
-    
+// $:{
+//     selectedItem;
+//     debugger;
+// }    
     
     let currentMouseX = 0;
     let currentMouseY = 0;
@@ -141,7 +144,7 @@
                 <div>{`x: ${currentMouseX}, y: ${currentMouseY}`}</div>
             </div>
             <div class='w-3/12 text-center'>
-                {#if selectedItemIndex !== -1}
+                {#if selectedItemIndex !== -1 && selectedItem}
                     <SelectItemMenu 
                         bind:items={items}
                         {selectedItemIndex}
@@ -149,7 +152,7 @@
                     />
                     <CommandUi 
                     bind:item={items[selectedItemIndex]}
-                    dialogueBox = {getSelectedItemObject().dialogueBox}
+                    dialogueBox = {selectedItem.itemObject.dialogueBox}
                     />
                 {/if}
             </div>

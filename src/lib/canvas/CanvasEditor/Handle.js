@@ -1,3 +1,4 @@
+
 export default class Handle {
   constructor(xFn, yFn, pointer='pointer', color='#1a73e8') {
     this.x = xFn;

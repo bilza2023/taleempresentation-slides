@@ -91,6 +91,19 @@ function addText( ){
   };
 return  addReqExtraFields(obj,"text","black") 
 }
+function addPara( ){
+  const obj ={
+    "text": "Hello \n Hello \n Hello",
+    "x": 100,
+    "y": 100,
+    "font": "20px Arial",
+    "fontSize": 20,
+    "fontFamily": 'Arial',
+    "lineHeightOffset" : 10,
+    "xOffset"        : 10,
+};
+return  addReqExtraFields(obj,"para","red"); 
+}
  function addEllipse( ){
   const obj = { 
     "x":          100,
@@ -270,20 +283,6 @@ return  addReqExtraFields(obj,"text","black")
       "font":       "20px Arial"
     };
     return  addReqExtraFields(obj,"repeatText","red"); 
-  }
-  
-  function addPara( ){
-    const obj ={
-      "text": "Hello \n Hello \n Hello",
-      "x": 100,
-      "y": 100,
-      "font": "20px Arial",
-      "fontSize": 20,
-      "fontFamil": 'Arial',
-      "lineHeightOffset" : 10,
-      "xOffset"        : 10,
-  };
-  return  addReqExtraFields(obj,"para","red"); 
   }
   
   function addSysImage( ){
