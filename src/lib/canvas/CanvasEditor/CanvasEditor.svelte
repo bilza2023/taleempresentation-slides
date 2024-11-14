@@ -1,20 +1,25 @@
 <script>
     import { onMount, onDestroy } from "svelte";
-    import itemToObject from "./itemObjects/itemToObject";
-    import CanvasPlayer from "./canvasPlayer/CanvasPlayer.svelte";
-    import SelectedItem from "./CanvasEditor/SelectedItem";
-    import AddToolbar from "./CanvasEditor/AddToolbar.svelte";
-    import getNewItem from "./CanvasEditor/getNewItem";
-    import getMouseData from "./CanvasEditor/getMouseData";
-    import SelectItemMenu from "./CanvasEditor/SelectItemMenu.svelte";
-    import CommandUi from './dialogueBoxModule/CommandUi.svelte';
+    import itemToObject from "../itemObjects/itemToObject";
+    import CanvasPlayer from "../canvasPlayer/CanvasPlayer.svelte";
+    import SelectedItem from "./SelectedItem";
+    import AddToolbar from "./AddToolbar.svelte";
+    import getNewItem from "./getNewItem";
+    import getMouseData from "./getMouseData";
+    import SelectItemMenu from "./SelectItemMenu.svelte";
+    import CommandUi from '../dialogueBoxModule/CommandUi.svelte';
     
     export let items;
     export let slideData;
     export let slideExtra;
     export let assets;
     export let showAddToolbar = true;
+//--very important    
+    let selectedItem = null;
     
+    
+    let currentMouseX = 0;
+    let currentMouseY = 0;
     let selectedItemIndex = -1; // Instead of storing the full object, just store the index
     let interval = null;
     
@@ -40,13 +45,6 @@
         console.log("update");
     }
     
-    function getSelectedItemObject() {
-        if (selectedItemIndex === -1) return null;
-        // debugger;
-        const itemData = items[selectedItemIndex];
-        return itemToObject(itemData, assets);
-    }
-    
     function deleteSelectedItem() {
         if (selectedItemIndex !== -1) {
             items.splice(selectedItemIndex, 1);
@@ -56,25 +54,22 @@
     }
     
     function eventMouseDown(e, ctx) {
-        const selectedObj = getSelectedItemObject();
-        if (selectedObj) {
+        if (selectedItem) {
             const {x, y} = getMouseData(e);
-            new SelectedItem(selectedObj).mouseDown(x, y);
+            selectedItem.mouseDown(x, y);
         }
     }
     
     function eventMouseMove(e, ctx) {
-        const selectedObj = getSelectedItemObject();
-        if (selectedObj) {
+        if (selectedItem) {
             const {x, y} = getMouseData(e);
-            new SelectedItem(selectedObj).mouseMove(x, y);
+            selectedItem.mouseMove(x, y);
         }
     }
     
     function eventMouseUp() {
-        const selectedObj = getSelectedItemObject();
-        if (selectedObj) {
-            new SelectedItem(selectedObj).mouseUp();
+        if (selectedItem) {
+            selectedItem.mouseUp();
         }
     }
     
@@ -92,10 +87,20 @@
             const itemObject = itemToObject(items[i], assets);
             if (itemObject && itemObject.isHit(x, y, ctx)) {
                 selectedItemIndex = i;
+                // now we use selectedItemIndex to create a new selectionedItem object
+                selectedItem = new SelectedItem(getSelectedItemObject());
                 return;
             }
         }
         selectedItemIndex = -1;
+        selectedItem = null; // delete selectionedItem object
+    }
+
+    function getSelectedItemObject() {
+        if (selectedItemIndex === -1) return null;
+        // debugger;
+        const itemData = items[selectedItemIndex];
+        return itemToObject(itemData, assets);
     }
     
     function setSelectedItemIndex(index) {
@@ -106,7 +111,6 @@
         const selectedObj = getSelectedItemObject();
         if (selectedObj) {
             const selected = new SelectedItem(selectedObj);
-            selected.setDeleteCallback(deleteSelectedItem);
             selected.drawHandles(ctx);
         }
     }
@@ -120,7 +124,7 @@
         {/if}
     
         <div class="flex w-full p-0 m-0 bg-stone-900 text-white p-2 min-h-screen">
-            <div class='w-9/12'>
+            <div class=''>
                 <CanvasPlayer
                     {slideData}
                     {items}
@@ -132,9 +136,9 @@
                     {eventDblClick}
                     {eventMouseMove}
                 />
+                <div>{`x: ${currentMouseX}, y: ${currentMouseY}`}</div>
             </div>
-    
-            <div class='w-3/12 text-center'>
+            <!-- <div class='w-3/12 text-center'>
                 {#if selectedItemIndex !== -1}
                     <SelectItemMenu 
                         bind:items={items}
@@ -146,6 +150,6 @@
                     dialogueBox = {getSelectedItemObject().dialogueBox}
                     />
                 {/if}
-            </div>
+            </div> -->
         </div>
     {/if}

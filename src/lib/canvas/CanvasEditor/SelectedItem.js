@@ -1,110 +1,93 @@
 // SelectedItem.svelte
 import Handle from './Handle.js';
 
+
 export default class SelectedItem {
     constructor(itemObject) {
-        this.itemObject = itemObject;
-        this.handles = new Map();
-        this.activeHandle = null;
-        this.startPos = { x: 0, y: 0 };
-        this.startBounds = { x: 0, y: 0, width: 0, height: 0 };
-        this.onDelete = null;
         
+        this.itemObject = itemObject;
+        this.handles = [];
+        this.selectedHandle = null;
+
+        this.isDrag = false;
+        this.startPositionX = 0 ; // this is to store x position when mouse move
+        this.startPositionY = 0 ; // this is to store y position when mouse move
         this.initializeHandles();
     }
 
     initializeHandles() {
-        this.addHandle('widthHandle', new Handle('top-right', { 
-            cursor: 'ne-resize',
-            color: '#2196f3'
-        }));
+        
+        const move =  new Handle(
+            () => this.itemObject.boundingRectangleX() + (this.itemObject.width / 2),
+            () => this.itemObject.boundingRectangleY() + (this.itemObject.height / 2),
+            
+            '✥','green');
 
-        this.addHandle('heightHandle', new Handle('bottom-right', { 
-            cursor: 'se-resize',
-            color: '#2196f3'
-        }));
+        this.handles.push(move);
 
-        this.addHandle('move', new Handle('center', { 
-            icon: '✥',
-            size: 15,
-            color: '#4caf50'
-        }));
-    }
-
-    addHandle(id, handle) {
-        this.handles.set(id, handle);
+        // const widthHandle =  new Handle({ 
+        //     icon: '✥',
+        //     size: 15,
+        //     color: 'orange'
+        // });
+        // this.handles.push(widthHandle);
+       
+        // const heightHandle =  new Handle({ 
+        //     icon: '✥',
+        //     size: 15,
+        //     color: 'blue'
+        // });
+        // this.handles.push(heightHandle);
     }
 
     drawHandles(ctx) {
-        // debugger;
-        const bounds = this.itemObject.getBounds();
-
+    
         // Draw selection rectangle
         ctx.save();
         ctx.strokeStyle = '#1a73e8';
         ctx.setLineDash([5, 5]);
-        ctx.strokeRect(bounds.x, bounds.y, bounds.width, bounds.height);
-        ctx.restore();
 
-        // Draw all handles
-        this.handles.forEach(handle => handle.draw(ctx, bounds));
+        //strokeRect
+        ctx.strokeRect(this.itemObject.boundingRectangleX() , this.itemObject.boundingRectangleY(), this.itemObject.width,this.itemObject.height);
+
+        // move handle
+        this.handles[0].draw(ctx);    
+
+        ctx.restore();
     }
 
     mouseDown(x, y) {
-        const bounds = this.itemObject.getBounds();
-        this.startPos = { x, y };
-        this.startBounds = { ...bounds };
-
-        for (const [id, handle] of this.handles) {
-            if (handle.isHit(x, y, bounds)) {
-                this.activeHandle = id;
-                return true;
-            }
-        }
-        return false;
+        this.isDrag = true; //this is true on mouse-down event when no-hit
+        const isMove = this.handles[0].isHit(x,y);
+        if(isMove == true) { 
+            this.selectedHandle = 'move';
+            console.log("selectedHandle==>move");
+        }    
     }
 
     mouseMove(x, y) {
-        if (!this.activeHandle) {
-            const bounds = this.itemObject.getBounds();
-            this.handles.forEach(handle => {
-                handle.isHovered = handle.isHit(x, y, bounds);
-            });
-            return false;
-        }
 
-        const dx = x - this.startPos.x;
-        const dy = y - this.startPos.y;
+          const dx = x - this.startPositionX;
+          const dy = y - this.startPositionY;
 
-        // Use startBounds for calculations
-        switch (this.activeHandle) {
-            case 'move':
-                this.itemObject.x = this.startBounds.x + dx;
-                this.itemObject.y = this.startBounds.y + dy;
-                break;
-
-            case 'heightHandle':
-                this.itemObject.height =  this.startBounds.height + dy;
-                
-                break;
-
-            case 'widthHandle':
-                this.itemObject.width =  this.startBounds.width + dx;
-                break;
+        if(this.isDrag == true && this.selectedHandle == 'move'){
+            // debugger;
+            // this.itemObject.x = this.itemObject.x + dx;
+            // this.itemObject.y = this.itemObject.y + dy;
+            this.itemObject.x += 1;
+           
         }
 
         return true;
     }
 
     mouseUp() {
-        this.activeHandle = null;
-    }
-
-    setDeleteCallback(callback) {
-        this.onDelete = callback;
+        this.isDrag = false;
+        this.selectedHandle = null;
     }
 
     isHit(x, y) {
         return this.mouseDown(x, y);
     }
+  
 }
