@@ -3,7 +3,7 @@
   import {onMount} from "svelte";
 
   // import audioData from "./audioData.js";
-  import {slides as defaultSlide} from "./slides.js";
+  import {slides as defaultSlide} from "../../lib/canvas/samples/demo.js";
   import loadAssets from "../assets/loadAssets";
   let currentTime=0;
 
@@ -17,6 +17,7 @@ function newPresentation(){
 slides = defaultSlide;
 }
 onMount(async()=>{
+  
   assets = await loadAssets(); 
 
 });

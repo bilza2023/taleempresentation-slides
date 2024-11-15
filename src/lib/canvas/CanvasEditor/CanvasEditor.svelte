@@ -1,7 +1,7 @@
 <script>
     import { onMount, onDestroy } from "svelte";
     import itemToObject from "../itemObjects/itemToObject";
-    import CanvasPlayer from "../canvasPlayer/CanvasPlayer.svelte";
+    import {CanvasPlayer} from "../../index";
     import SelectedItem from "./SelectedItem";
     import AddToolbar from "./AddToolbar.svelte";
     import getNewItem from "./getNewItem";
@@ -12,8 +12,9 @@
 
 
     export let items;
-    export let slideData;
     export let slideExtra;
+    export let logSlide;
+
     export let assets;
     export let showAddToolbar = true;
     //--very important    
@@ -137,27 +138,26 @@ function deleteFn() {
         selectedItem = null; // Clear selected item
     }
 }
+function logSlideLocal(){
+    logSlide(items, slideExtra);
+}
 
-// function logSlide(){
-//     console.log("Slide" , items);
-//     console.log("slideExtra" , slideExtra);
+// function logSlide() {
+//     // Convert array to JSON string
+//     const jsonString = JSON.stringify(items, null, 2);
+//     // Create a blob with the JSON data
+//     const blob = new Blob([jsonString], { type: 'application/json' });
+//     // Create a temporary anchor element
+//     const url = URL.createObjectURL(blob);
+//     const a = document.createElement('a');
+//     a.href = url;
+//     a.download = 'slide.json';
+//     // Trigger download
+//     a.click();
+//     // Clean up the URL object
+//     URL.revokeObjectURL(url);
 // }
 
-function logSlide() {
-    // Convert array to JSON string
-    const jsonString = JSON.stringify(items, null, 2);
-    // Create a blob with the JSON data
-    const blob = new Blob([jsonString], { type: 'application/json' });
-    // Create a temporary anchor element
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'slide.json';
-    // Trigger download
-    a.click();
-    // Clean up the URL object
-    URL.revokeObjectURL(url);
-}
 
 function redraw(){
     items = [...items]; // Trigger reactivity
@@ -168,14 +168,13 @@ function redraw(){
         {#if showAddToolbar}
             <div class="flex  w-full p-0 m-0">
                 <AddToolbar icons={assets.icons} {addNewItem} 
-                {clone} {deleteFn} {logSlide} {showCanvas} />
+                {clone} {deleteFn} {logSlideLocal} {showCanvas} />
             </div>
         {/if}
     
         <div class="flex w-full p-0 m-0 bg-stone-900 text-white p-2  gap-1">
             <div class='mx-1'>
                 <CanvasPlayer
-                    {slideData}
                     {items}
                     {slideExtra}
                     {assets}

@@ -129,7 +129,6 @@ draw(ctx) {
   } else {
       ctx.setLineDash([dash, gap]);
   }
-  console.log("filled",filled);
   
   if (filled) {
       ctx.fillStyle = color;
