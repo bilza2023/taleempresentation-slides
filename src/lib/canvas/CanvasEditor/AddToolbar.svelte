@@ -13,9 +13,9 @@
 export let addNewItem;
 
 </script>
-<div class="flex justify-between ">
+<div class="flex justify-between text-white ">
 
-<div class="flex ">
+<div class="flex text-white ">
 <SmallBtnToolbar clk={()=>addNewItem(addRect)} icon={icons.RECTANGLE} title="Rect" />
 <SmallBtnToolbar clk={()=>addNewItem(addCircle)} icon={icons.CIRCLE} title="Circle" />
 <SmallBtnToolbar clk={()=>addNewItem(addEllipse)} icon={icons.ELLIPSE} title="Ellipse" />
