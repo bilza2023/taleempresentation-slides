@@ -5,18 +5,15 @@
     - CanvasPlayer.svelte is for  display on the canvas and thats all.
     -  **do not add any functinality into it**.
     - All it does is draw itemObjects and thats all.
-    - Mainly it draw itemObjects given in items.
     - We can also feed it itemObjects in preDraw and postDraw functions since they also get ctx as argement.
     - We also have some hooks like onMount and onDestroy to setup and teardown canvas and interval.
     - it does not concern its self with the selectedItem and drawing handles for the selectedItem since that functionality should be seperate.
-    - We can manage selected item using slide.items seperately in parent file and also add Handles for selectedItem using postDraw callback.
     - it has gameLoop -- why ??? i checked chat-gpt it is good for smooth animation.mouse tracking is not here.
     - i has functions for mouse events like click , mouse move etc.
 
    */
   
   import { onMount, onDestroy } from "svelte";
-  import DrawLib from "./drawLib";
   import { ctxStore } from '../store';
 
     export let slideExtra = {};
@@ -44,11 +41,9 @@
     function handleDbClick(event) {
       eventDblClick(event, ctx);
   }
-    ///////////////////////////////////////////
-    
+
     let canvas;
     let ctx;
-    let drawLib;
     let interval;
     let isInitialized = false;
    
@@ -58,20 +53,20 @@
         slideExtra.bgGlobalAlpha = 1;
       }
   
-      drawLib.clear(slideExtra.backgroundColor);
+      clear(slideExtra.backgroundColor);
   
       if(slideExtra.bgImg !== "null") {
         for (let i = 0; i < assets.bgImages.length; i++) {
           const element = assets.bgImages[i];
           if(element.name === slideExtra.bgImg) {
-            drawLib.bgImage(element.img, slideExtra.bgGlobalAlpha || 1);
+            bgImage(element.img, slideExtra.bgGlobalAlpha || 1);
             break;
           }
         }
       }
   
       if(slideExtra.showGrid) {
-        drawLib.grid(
+        grid(
           slideExtra.cellWidth, 
           slideExtra.cellHeight, 
           slideExtra.gridLineWidth, 
@@ -88,19 +83,56 @@
   
         for (let i = 0; i < itemObjects.length; i++) {
           const item = itemObjects[i];
-          //This is where infally currentTime was being used in the canvas module i am trying to remove every thing that i can later implement as a simple .js object does not need to be here" 12-nov-2024 
-          // if (item.isVisible(current Time)) {
-            preDraw(drawLib.ctx);   
-            item.draw(drawLib.ctx);
-            postDraw(drawLib.ctx);   
-          // }
+            preDraw(ctx);   
+            item.draw(ctx);
+            postDraw(ctx);   
         }
   
       } catch (error) {
         console.error("An error occurred:", error);
       }
     }
-  
+      ///////////////////////////////////////////
+      function clear(backgroundColor='gray') {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = backgroundColor; 
+    ctx.fillRect(0, 0, canvas.width, canvas.height); 
+    }  
+
+    function bgImage(image,bgGlobalAlpha=1) {
+        ctx.globalAlpha = bgGlobalAlpha;    
+        ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+        ctx.globalAlpha = 1;    
+    }
+    function grid(cellWidth = 100, cellHeight = 100, lineWidth = 2, lineColor = 'black') {
+    ctx.save(); // Save the current context state
+
+    // Adjust canvas settings for sharp lines
+    ctx.translate(0.5, 0.5);
+    ctx.imageSmoothingEnabled = false;
+
+    ctx.strokeStyle = lineColor;
+    ctx.lineWidth = lineWidth;
+
+    // Draw vertical lines
+    for (let x = cellWidth; x < canvas.width; x += cellWidth) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, canvas.height);
+        ctx.stroke();
+    }
+
+    // Draw horizontal lines
+    for (let y = cellHeight; y < canvas.height; y += cellHeight) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
+    }
+
+    ctx.restore(); // Restore the context state
+}   
+    ///////////////////////////////////////////
     async function initializeCanvas() {
       if (!canvas) return false;
       
@@ -109,10 +141,7 @@
       ctx = canvas.getContext("2d");
       //----very important line.. 1 line changed on 11-Nov-2024 but is very important since now we have ctx in the store
       $ctxStore = ctx;
-      // const scale = canvas.width / canvas.getBoundingClientRect().width;
-      drawLib = new DrawLib(canvas, ctx);//just used twice we can remove drawLib if we want
       isInitialized = true;
-      // updateItemObjects();
       interval = setInterval(gameLoop, 20);
       return true;
     }

@@ -215,7 +215,7 @@ function redraw(){
                                         {setSelectedItemIndex}
                                     />
                                     
-                                {#if selectedItemIndex !== -1 && selectedItem}    
+                                {#if selectedItem}    
                                 <CommandUi 
                                 bind:item={items[selectedItemIndex]}
                                 dialogueBox = {selectedItem.itemObject.dialogueBox}
