@@ -4,7 +4,7 @@ export const Slide ={
           "name": "",
           "content": "",
           "showAt": 0,
-          "extra": {
+          "itemExtra": {
             "step": 0,
             "startTime": 0,
             "endTime": 0,
@@ -23,7 +23,7 @@ export const Slide ={
           "name": "",
           "content": "",
           "showAt": 0,
-          "extra": {
+          "itemExtra": {
             "step": 1,
             "startTime": 0,
             "endTime": 0,
@@ -50,7 +50,7 @@ export const Slide ={
           "name": "",
           "content": "",
           "showAt": 0,
-          "extra": {
+          "itemExtra": {
             "step": 2,
             "startTime": 0,
             "endTime": 0,
@@ -77,7 +77,7 @@ export const Slide ={
           "name": "",
           "content": "",
           "showAt": 0,
-          "extra": {
+          "itemExtra": {
             "step": 3,
             "startTime": 0,
             "endTime": 0,
@@ -99,7 +99,7 @@ export const Slide ={
           "name": "",
           "content": "",
           "showAt": 0,
-          "extra": {
+          "itemExtra": {
             "step": 4,
             "startTime": 0,
             "endTime": 0,
@@ -121,7 +121,7 @@ export const Slide ={
           "name": "",
           "content": "",
           "showAt": 0,
-          "extra": {
+          "itemExtra": {
             "step": 5,
             "startTime": 0,
             "endTime": 0,
