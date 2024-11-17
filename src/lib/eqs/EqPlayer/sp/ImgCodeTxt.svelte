@@ -22,7 +22,7 @@ export let eq;
 
     {#if eq.type == 'img' || eq.type == 'image'}
 
-    <img src= {`https://taleem-media.blr1.cdn.digitaloceanspaces.com/bucket/${eq.code}.jpg`} alt="Not found" />
+    <img src= {eq.code} alt="Not found" />
 
 
     {/if}

@@ -2,7 +2,7 @@
 <script>
  
         import EqPanel from './EqPanel.svelte';
-        // import SidePanel from './sp/SidePanel.svelte';
+        import SidePanel from './sp/SidePanel.svelte';
       
         export let currentTime;
         export let setPulse;
@@ -18,8 +18,7 @@
       
      
           <div class="w-4/12 min-h-screen p-2 m-0 mt-2 bg-yellow-950 text-yellow-300b">
-            <!-- <SidePanel {pulse} /> -->
-            SidePanel
+            <SidePanel {currentTime} />
           </div>
    
       

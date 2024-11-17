@@ -7,15 +7,13 @@ export const Slide ={
           "itemExtra": {
             "step": 0,
             "startTime": 0,
-            "endTime": 0,
+            "endTime": 5,
             "fsStartTime": 0,
             "fsEndTime": 0,
             "code": "Write the following quadratic equations in the standard form and point out pure quadratic equations.",
             "type": "hdg",
             "sp": [],
-            "fs": [],
-            "fsVisibility": false,
-            "spVisibility": false
+            "selected": true,
           },
          
         },
@@ -25,8 +23,8 @@ export const Slide ={
           "showAt": 0,
           "itemExtra": {
             "step": 1,
-            "startTime": 0,
-            "endTime": 0,
+            "startTime": 5,
+            "endTime": 30,
             "fsStartTime": 0,
             "fsEndTime": 0,
             "code": "(x+7)(x-3)=-7",
@@ -35,6 +33,10 @@ export const Slide ={
               {
                 "code": "Solution",
                 "type": "text"
+              },
+              {
+                "code": "https://taleem-media.blr1.cdn.digitaloceanspaces.com/bucket/baloons.png",
+                "type": "img"
               }
             ],
             "fs": [],
@@ -52,8 +54,8 @@ export const Slide ={
           "showAt": 0,
           "itemExtra": {
             "step": 2,
-            "startTime": 0,
-            "endTime": 0,
+            "startTime": 30,
+            "endTime": 40,
             "fsStartTime": 0,
             "fsEndTime": 0,
             "code": "(x+7)(x-3)=-7",
@@ -79,8 +81,8 @@ export const Slide ={
           "showAt": 0,
           "itemExtra": {
             "step": 3,
-            "startTime": 0,
-            "endTime": 0,
+            "startTime": 40,
+            "endTime": 50,
             "fsStartTime": 0,
             "fsEndTime": 0,
             "code": "x^2+4x-21=-7",
@@ -101,8 +103,8 @@ export const Slide ={
           "showAt": 0,
           "itemExtra": {
             "step": 4,
-            "startTime": 0,
-            "endTime": 0,
+            "startTime": 20,
+            "endTime": 60,
             "fsStartTime": 0,
             "fsEndTime": 0,
             "code": "x^2+4x-21+7=7",
@@ -123,8 +125,8 @@ export const Slide ={
           "showAt": 0,
           "itemExtra": {
             "step": 5,
-            "startTime": 0,
-            "endTime": 0,
+            "startTime": 60,
+            "endTime": 100,
             "fsStartTime": 0,
             "fsEndTime": 0,
             "code": "x^2+4x-14=0",

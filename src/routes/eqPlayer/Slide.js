@@ -24,7 +24,7 @@ export const Slide ={
           "itemExtra": {
             "step": 1,
             "startTime": 5,
-            "endTime": 10,
+            "endTime": 30,
             "fsStartTime": 0,
             "fsEndTime": 0,
             "code": "(x+7)(x-3)=-7",
@@ -33,6 +33,10 @@ export const Slide ={
               {
                 "code": "Solution",
                 "type": "text"
+              },
+              {
+                "code": "https://taleem-media.blr1.cdn.digitaloceanspaces.com/bucket/baloons.png",
+                "type": "img"
               }
             ],
             "fs": [],
@@ -50,8 +54,8 @@ export const Slide ={
           "showAt": 0,
           "itemExtra": {
             "step": 2,
-            "startTime": 10,
-            "endTime": 15,
+            "startTime": 30,
+            "endTime": 40,
             "fsStartTime": 0,
             "fsEndTime": 0,
             "code": "(x+7)(x-3)=-7",
@@ -77,8 +81,8 @@ export const Slide ={
           "showAt": 0,
           "itemExtra": {
             "step": 3,
-            "startTime": 15,
-            "endTime": 20,
+            "startTime": 40,
+            "endTime": 50,
             "fsStartTime": 0,
             "fsEndTime": 0,
             "code": "x^2+4x-21=-7",
