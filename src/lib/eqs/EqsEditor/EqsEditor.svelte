@@ -96,8 +96,8 @@ let runningTime = startTime;
 
 <!-- Side Panel -->
           <!-- {#if uiState[i].spVisibility} -->
-          <FSSPToolBar  {item}  />
-          <SP  {item} />
+          <FSSPToolBar  {item}  {i}/>
+          <SP  {item} {i}/>
           <!-- {/if} -->
        
   {/each}

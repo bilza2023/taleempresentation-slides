@@ -122,7 +122,7 @@
     {/if}
 
     {#if (sp.type == 'tableCode')}
-      <TableCode bind:item={sp.code} {moveUp} {moveDown} {del}  {j}/>
+      <!-- <TableCode bind:item={sp.code} {moveUp} {moveDown} {del}  {j}/> -->
     {/if}
   {/each}
 </div>
