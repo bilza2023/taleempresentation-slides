@@ -1,9 +1,9 @@
 <script>
   // edited on 17-Nov-2024
-  // import { itemsStore } from "./store";
+  import { itemsStore } from "./store";
   import CodeTxt from './CodeTxt.svelte';
   
-  export let items;
+  // export let items;
   export let currentTime;
   export let setPulse;
 

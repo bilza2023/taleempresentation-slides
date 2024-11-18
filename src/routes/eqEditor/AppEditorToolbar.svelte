@@ -1,5 +1,6 @@
 <script>
     export let slide;
+    export let currentTime;
 
     export let createNewSlide=()=>{};
     let fileNameToSave='slide-1';
@@ -56,5 +57,7 @@ function saveSlide(){
       type="text" 
       bind:value={fileNameToSave} 
     />
+
+    <div class="text-xs">Current Time : {currentTime}</div>
   </div>
   
