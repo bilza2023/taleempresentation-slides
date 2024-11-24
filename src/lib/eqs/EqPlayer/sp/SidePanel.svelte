@@ -36,8 +36,9 @@ $:{
  
         <div class='w-full  rounded-md m-1 p-1 bg-stone-600 text-center'>
         {#if  currentItem.itemExtra.sp.length > 0 }    
-                {#each currentItem.itemExtra.sp as eq}    
-                         <ImgCodeTxt {eq} />        
+                {#each currentItem.itemExtra.sp as eq}  
+                  
+                         <ImgCodeTxt {eq} />         
 
                 {/each}
         {/if}
