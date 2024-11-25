@@ -24,7 +24,7 @@ export const Slide ={
         "itemExtra": {
           "step": 1,
           "startTime": 5,
-          "endTime": 30,
+          "endTime": 10,
           "fsStartTime": 0,
           "fsEndTime": 0,
           "code": "(x+7)(x-3)=-7",
@@ -54,8 +54,8 @@ export const Slide ={
         "showAt": 0,
         "itemExtra": {
           "step": 2,
-          "startTime": 30,
-          "endTime": 40,
+          "startTime": 10,
+          "endTime": 20,
           "fsStartTime": 0,
           "fsEndTime": 0,
           "code": "(x+7)(x-3)=-7",
@@ -81,8 +81,8 @@ export const Slide ={
         "showAt": 0,
         "itemExtra": {
           "step": 3,
-          "startTime": 40,
-          "endTime": 50,
+          "startTime": 20,
+          "endTime": 30,
           "fsStartTime": 0,
           "fsEndTime": 0,
           "code": "x^2+4x-21=-7",
@@ -103,8 +103,8 @@ export const Slide ={
         "showAt": 0,
         "itemExtra": {
           "step": 4,
-          "startTime": 20,
-          "endTime": 60,
+          "startTime": 30,
+          "endTime": 40,
           "fsStartTime": 0,
           "fsEndTime": 0,
           "code": "x^2+4x-21+7=7",
@@ -125,8 +125,8 @@ export const Slide ={
         "showAt": 0,
         "itemExtra": {
           "step": 5,
-          "startTime": 60,
-          "endTime": 100,
+          "startTime": 40,
+          "endTime": 50,
           "fsStartTime": 0,
           "fsEndTime": 0,
           "code": "x^2+4x-14=0",
@@ -157,3 +157,4 @@ export const Slide ={
     "slideExtra": [],
    
 };
+
