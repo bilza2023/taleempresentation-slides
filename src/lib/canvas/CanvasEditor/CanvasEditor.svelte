@@ -32,13 +32,13 @@ itemObjects = itemsToitemObjects(items,assets);
     let currentMouseX = 0;
     let currentMouseY = 0;
     let interval = null;
+
+onMount(async () => {
+});
     
-    onMount(async () => {
-    });
-    
-    onDestroy(async () => {
-        clearInterval(interval);
-    });
+onDestroy(async () => {
+    clearInterval(interval);
+});
     
 function addNewItem(newItemExtraFn) {
     const newItemExtra = newItemExtraFn();

@@ -15,6 +15,25 @@ export const Slide ={
       "extra": {},
       "arr": [],
       "itemExtra": {
+        'command' : 'dot',
+        "x": 100,
+        "y": 100,
+        "label": "Manual Dot",
+        "dot_width": 10,
+        "text_color": "yellowbezier",
+        "text_size": 24,
+        "fill": true,
+      }
+    },
+    {
+      "uuid": "014c7eb7-553f-4494-93b7-ec876b4966c0",
+      "name": "",
+      "content": "",
+      "showAt": 0,
+      "hideAt": null,
+      "extra": {},
+      "arr": [],
+      "itemExtra": {
         "text": "This is Heading",
         "x": 685.5795651070644,
         "y": 124.12813470896039,

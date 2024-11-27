@@ -4,7 +4,7 @@
  import CanvasPlayer from "../../lib/canvas/CanvasPlayer/CanvasPlayer.svelte";
  import loadAssets from "../assets/loadAssets";
  import AppToolbar from "./AppToolbar.svelte";
- import {Slide}  from "../../lib/canvas/samples/2.js";
+ import {Slide}  from "../../lib/canvas/samples/demo";
   
  let slide =null;
  let assets = null;

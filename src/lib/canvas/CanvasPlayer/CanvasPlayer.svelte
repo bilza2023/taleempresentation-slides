@@ -17,6 +17,8 @@
   import { ctxStore } from '../store';
   import itemsToitemObjects from '../itemObjects/itemsToitemObjects';
 
+  import draw from './drawFunctions/draw';
+
     export let slideExtra = {};
     export let items;
     export let assets;
@@ -90,8 +92,10 @@ itemObjects = itemsToitemObjects(items,assets);
   
         for (let i = 0; i < itemObjects.length; i++) {
           const item = itemObjects[i];
+        
             preDraw(ctx);   
-            item.draw(ctx);
+            // item.draw(ctx);
+            draw(ctx,item.itemData);
             postDraw(ctx);   
         }
   
