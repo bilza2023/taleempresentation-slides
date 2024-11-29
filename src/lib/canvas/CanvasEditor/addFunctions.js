@@ -147,22 +147,44 @@ return  addReqExtraFields(obj,"para","red");
       };
     return  addReqExtraFields(obj,"circle","red")
   }
+    // function addRepeatDot( ){
+  //   const obj ={
+  //     "numberOfDots": 5,
+  //     "initialX": 100,
+  //     "initialY": 100,
+  //     "xFactor": 30,
+  //     "yFactor": 0,
+  //     "width": 5,
+  //   };
+  //   return  addReqExtraFields(obj,"repeatDot","yellow") 
+  // }
+  // function addRepeatText( ){
+  //   const obj ={
+  //     "textArray":  "1,2,3,4",
+  //     "initialX":   100,
+  //     "initialY":   100,
+  //     "xFactor":    30,
+  //     "yFactor":    0,
+  //     "font":       "20px Arial"
+  //   };
+  //   return  addReqExtraFields(obj,"repeatText","red"); 
+  // }
   //-----not implemented
-  function addBezier( ){
-    // debugger;
-    const obj = {
-          "x":  3,
-          "y":  1,
-          "x1": 29,
-          "y1": 5,
-          "x2": 3,
-          "y2": 10,
-          "lineWidth": 1,
-          "showHandle" : false,
-          };
-    return  addReqExtraFields(obj,"bezier","red")      
+  // function addBezier( ){
+  //   // debugger;
+  //   const obj = {
+  //         "x":  3,
+  //         "y":  1,
+  //         "x1": 29,
+  //         "y1": 5,
+  //         "x2": 3,
+  //         "y2": 10,
+  //         "lineWidth": 1,
+  //         "showHandle" : false,
+  //         };
+  //   return  addReqExtraFields(obj,"bezier","red")      
     
-  }
+  // }
   //-----not implemented
   function addAngleSymbol( ){
     const obj = {
@@ -232,7 +254,6 @@ return  addReqExtraFields(obj,"para","red");
     return  addReqExtraFields(obj,"triangle","red") 
   }
  
-
   function addRay( ){
     const obj ={
               "x0":           100,
@@ -248,29 +269,6 @@ return  addReqExtraFields(obj,"para","red");
     return  addReqExtraFields(obj,"ray","yellow") 
   }
 
-  // function addRepeatDot( ){
-  //   const obj ={
-  //     "numberOfDots": 5,
-  //     "initialX": 100,
-  //     "initialY": 100,
-  //     "xFactor": 30,
-  //     "yFactor": 0,
-  //     "width": 5,
-  //   };
-  //   return  addReqExtraFields(obj,"repeatDot","yellow") 
-  // }
-  // function addRepeatText( ){
-  //   const obj ={
-  //     "textArray":  "1,2,3,4",
-  //     "initialX":   100,
-  //     "initialY":   100,
-  //     "xFactor":    30,
-  //     "yFactor":    0,
-  //     "font":       "20px Arial"
-  //   };
-  //   return  addReqExtraFields(obj,"repeatText","red"); 
-  // }
-   
  function addImage(){
 // const img = new Image();
 // img.src = 'https://taleem-media.blr1.cdn.digitaloceanspaces.com/bucket/wood.jpg';
@@ -308,7 +306,6 @@ return  addReqExtraFields(obj,"para","red");
 export {   
                 addEllipse,
                 addCircle,
-                addBezier,
                 addRect,
                 addAngleSymbol,
                 addDot,

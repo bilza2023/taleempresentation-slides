@@ -1,0 +1,16 @@
+export default function itemToObject(item: any, assets: any): PieChartObject | IconObject | DotObject | AngleObject | SpriteObject | ParaObject | TriangleObject | TextObject | EllipseObject | RayObject | LineObject | LinesObject | Rectangle | ImageObject | Circle | undefined;
+import PieChartObject from './PieChartObject';
+import IconObject from './IconObject';
+import DotObject from './DotObject';
+import AngleObject from './AngleObject';
+import SpriteObject from './SpriteObject';
+import ParaObject from './ParaObject';
+import TriangleObject from './TriangleObject';
+import TextObject from './TextObject';
+import EllipseObject from './EllipseObject';
+import RayObject from './RayObject';
+import LineObject from './LineObject';
+import LinesObject from './LinesObject';
+import Rectangle from './Rectangle';
+import ImageObject from './ImageObject';
+import Circle from './Circle';

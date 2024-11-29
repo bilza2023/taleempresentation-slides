@@ -1,0 +1,46 @@
+export default class ItemObject {
+    constructor(itemData: any, assets: any);
+    itemData: any;
+    assets: any;
+    isVisible(): boolean;
+    draw(ctx: any): void;
+    getBounds(): {
+        x: any;
+        y: any;
+        width: any;
+        height: any;
+    };
+    isHit(mouseX: any, mouseY: any): boolean;
+    boundingRectangleX(): any;
+    boundingRectangleY(): any;
+    set x(newX: any);
+    get x(): any;
+    set y(newY: any);
+    get y(): any;
+    set width(newWidth: any);
+    get width(): any;
+    set height(newHeight: any);
+    get height(): any;
+    set command(value: any);
+    get command(): any;
+    set name(value: any);
+    get name(): any;
+    set color(value: any);
+    get color(): any;
+    set showAt(value: any);
+    get showAt(): any;
+    set globalAlpha(value: any);
+    get globalAlpha(): any;
+    set gap(value: any);
+    get gap(): any;
+    set dash(value: any);
+    get dash(): any;
+    set shadowOffsetX(value: any);
+    get shadowOffsetX(): any;
+    set shadowOffsetY(value: any);
+    get shadowOffsetY(): any;
+    set shadowColor(value: any);
+    get shadowColor(): any;
+    set shadowBlur(value: any);
+    get shadowBlur(): any;
+}
