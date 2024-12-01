@@ -2,10 +2,10 @@
    import AppToolbar from "./AppToolbar.svelte";
   import {CanvasEditor}  from "$lib";
   import {onMount} from "svelte";
-  import {Slide} from "../../lib/canvas/samples/blank";
+  //this is the only line that i need to change in this page
+  import {Slide} from "../../lib/canvas/samples/12items";
   import {slide as NewSlide} from "./slide.js";
   import loadAssets from "../assets/loadAssets";
-  
   let slide = null;
   let showAddToolbar = true;
   let assets = null;
@@ -47,7 +47,6 @@
   }
 
   onMount(async()=>{
-    debugger;
     assets = await loadAssets(); 
     slide = Slide;
   });
@@ -72,3 +71,4 @@
     />
   {/if}
 </div>
+

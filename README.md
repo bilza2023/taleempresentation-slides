@@ -85,5 +85,60 @@
 
 ```
 
+## Differences between Canvas and Eqs Slides:
+
+  - Eqs just have fields just like canvas slides:
+       `uuid`, 
+       `slideExtra` , 
+       `items` , 
+       `type` and 
+       `template` 
+       `version`  (basic)
+       `startTime`
+       `endTime`
+
+  - The difference is in startTime and endTime. Many Eqs slides will have startTime and endTime but they are actually calculated from item[0].startTime and last item.endTime. so the main difference between both the slides in how the start and end time are calculated.
+
+  - Inside items each item in Eqs must have following fields just like canvas slide, no difference here:
+      - "uuid": "30749bf1-c089-484b-ad2f-2f8aee8b7264",
+      - "name": "",
+      - "content": "",
+      - "showAt": 0,
+      - "hideAt": null,
+      - "itemExtra"  // This is an object which canvas and Eqs have different.
+ 
+
+ -  item.itemExtra : in canvas the item.itemExtra is different for each canvas-item-type (which is based on item.itemExtra.command). However is Eqs each item.itemExtra is same:
+
+```javascript 
+          "itemExtra": {
+          "startTime": 0,
+          "endTime": 5,
+          "code": "Write the following quadratic equations in the standard form and point out pure quadratic equations.",
+          "type": "hdg",
+          "sp": []
+        }
+```
+ - `Eqs.item.itemExtra.type` : One of the  complications that we have in Eqs slide in item.itemExtra.type. This can be of :
+
+```javascript
+const availableEqsItems = ['hdg' , 'code', 'txt' ];
+```
+
+- `Eqs.item.itemExtra.sp` Another complicated item in  side panel.  which is in this format:
+
+```javascript
+          "sp": [
+            {
+              "code": "https://taleem-media.blr1.cdn.digitaloceanspaces.com/bucket/baloons.png",
+              "type": "img"
+            }
+          ]
+```
+- Eqs item.itemExtra is `sp` (side panel) has following types
+```javascript
+const availableEqsSpItems = ['code' , 'text', 'img' , 'heading' , 'table' , 'tableCode' ];
+```
+
 ## License
 MIT © Bilal Tariq

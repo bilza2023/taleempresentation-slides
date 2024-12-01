@@ -10,13 +10,7 @@ import EqTypeHdg from './EqTypeHdg.svelte';
 // import LowerToolBar from './LowerToolBar.svelte';
 
 export let item;
-// export let addEq; 
-// export let delEq; 
-// export let moveUpEq; 
-// export let moveDownEq; 
-// export let setEqType;  
-// export let toggleSP; 
-// export let status;
+
 
 </script> 
  

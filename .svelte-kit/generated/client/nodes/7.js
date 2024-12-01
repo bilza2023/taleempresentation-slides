@@ -1,1 +1,1 @@
-export { default as component } from "../../../../src/routes/konva/+page.svelte";
+export { default as component } from "../../../../src/routes/eqPlayer/+page.svelte";
