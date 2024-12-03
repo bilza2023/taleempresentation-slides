@@ -3,9 +3,14 @@
   import {CanvasEditor}  from "$lib";
   import {onMount} from "svelte";
   //this is the only line that i need to change in this page
-  import {Slide} from "../../lib/canvas/samples/12items";
-  import {slide as NewSlide} from "./slide.js";
-  import loadAssets from "../assets/loadAssets";
+  // import {Slide} from "../../lib/canvas/samples/12items";
+  import {Slide} from "./slide";
+  // import {slide as NewSlide} from "./slide.js";
+  import upgrade from "./upgrade";
+
+  import {SlideObject} from "$lib";
+
+  import loadAssets from "../../lib/assets/loadAssets";
   let slide = null;
   let showAddToolbar = true;
   let assets = null;
@@ -49,6 +54,8 @@
   onMount(async()=>{
     assets = await loadAssets(); 
     slide = Slide;
+    await SlideObject.upgrade2Basic([slide]);
+
   });
 
 </script>

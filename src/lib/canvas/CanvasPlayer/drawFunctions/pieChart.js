@@ -10,6 +10,7 @@ export default function pieChart(ctx,item){
     const y = item.itemExtra.y;
     const radius = item.itemExtra.radius;
     const data = JSON.parse(item.itemExtra.data);
+    // const data = item.itemExtra.data;
     let startAngle = 0;
 
     const centerX = x;
