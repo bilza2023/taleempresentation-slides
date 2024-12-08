@@ -106,43 +106,7 @@ export default class LineObject extends ItemObject {
         ];
     }
 
-///////////////////////////////////////////////////////////////////////////
-  draw(ctx) {
-    // Save the current context state
-    ctx.save();
-    // Extract values
-    const x1 = this.itemData.itemExtra.x1;
-    const y1 = this.itemData.itemExtra.y1;
-    const x2 = this.itemData.itemExtra.x2;
-    const y2 = this.itemData.itemExtra.y2;
-    const color = this.itemData.itemExtra.color || 'black';
-    const lineWidth = this.itemData.itemExtra.lineWidth || 1;
-    const dash = this.itemData.itemExtra.dash || 0;
-    const gap = this.itemData.itemExtra.gap || 0;
-    const globalAlpha = this.itemData.itemExtra.globalAlpha || 1;
-
-    // Set properties
-    ctx.lineWidth = lineWidth;
-    ctx.strokeStyle = color;
-    ctx.globalAlpha = globalAlpha;
-
-    // Set line dash pattern
-    if (dash === 0 && gap === 0) {
-        ctx.setLineDash([]);
-    } else {
-        ctx.setLineDash([dash, gap]);
-    }
-
-    // Draw the line
-    ctx.beginPath();
-    ctx.moveTo(x1, y1);
-    ctx.lineTo(x2, y2);
-    ctx.stroke();
-
-    // Restore the context state
-    ctx.restore();
-}
-
+////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 boundingRectangleX() {
     // For LineObject

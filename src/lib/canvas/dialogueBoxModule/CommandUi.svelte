@@ -32,7 +32,7 @@ import LinesDD from "./lines/LinesDD.svelte";
 
 
   <!-- Special Command Components -->
-                    {#if item.itemExtra.command === 'sprite'} 
+                    {#if item.itemExtra.type === 'sprite'} 
                         <div>
                             <div><SpriteDD bind:extra={item.itemExtra}/></div>
                         </div>

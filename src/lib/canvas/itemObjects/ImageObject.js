@@ -115,18 +115,5 @@ export default class ImageObject extends ItemObject {
     }
 
 ///////////////////////////////////////////////////
-draw(ctx){ 
-    // debugger;
-    if (!this.itemData.itemExtra.image  || this.itemData.itemExtra.image == null) {return;} 
-   
-   ctx.save(); // Save the current context state
-   ctx.globalAlpha =   this.itemData.itemExtra.globalAlpha; // Set the global alpha
-   ctx.drawImage(this.itemData.itemExtra.image, this.itemData.itemExtra.x, this.itemData.itemExtra.y, this.itemData.itemExtra.width, this.itemData.itemExtra.height);
-   ctx.restore();     
-}
-////////////////////////////////////////////////////
 
-
-///////////////////////////////////////////////////
-    
 }//class

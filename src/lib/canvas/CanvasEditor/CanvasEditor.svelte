@@ -28,6 +28,7 @@
 
 $:{
 items;
+// debugger;
 itemObjects = itemsToitemObjects(items,assets);
 }
     

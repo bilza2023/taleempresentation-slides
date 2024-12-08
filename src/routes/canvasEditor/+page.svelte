@@ -54,7 +54,8 @@
   onMount(async()=>{
     assets = await loadAssets(); 
     slide = Slide;
-    await SlideObject.upgrade2Basic([slide]);
+    // await SlideObject.upgrade2Basic([slide]);
+    // debugger;
 
   });
 
