@@ -15,10 +15,11 @@
   
   import { onMount, onDestroy } from "svelte";
   import { ctxStore } from '../store';
-  import draw from './drawFunctions/draw';
+  //--draw functions are removed just here for final clean up.
+  // import draw from './drawFunctions/draw';
  
-  import ItemsMap from "../staticItems/ItemsMap";
-
+  import SlideObject from "../../slideObject/slideObject";
+  
 
     export let slideExtra = {};
     export let items;
@@ -91,8 +92,10 @@
           const item = items[i];
         
             preDraw(ctx,assets);   
-            const Obj = ItemsMap.get('text');
-            // draw(ctx,item,assets);
+        
+            //very important line
+            const Obj = SlideObject.Canvas.ItemsMap.get(item.itemExtra.type);
+        
             Obj.draw(ctx,item.itemExtra,assets);
             postDraw(ctx,assets);   
         }

@@ -13,33 +13,30 @@
     import CanvasCommand from "../dialogueBoxModule/CanvasCommand.svelte";
     import itemsToitemObjects from '../itemObjects/itemsToitemObjects';
 
-    //--Here is CanvasEditor export let:
     export let items;
     export let slideExtra;
     export let assets;
     export let showAddToolbar = true;
 
-    let itemObjects = null;
     let selectedItem = null;
+    let itemObjects = null;
+       
+    let showCanvasFlag = false;
+    let currentMouseX = 0;
+    let currentMouseY = 0;
+    let interval = null;
 
 $:{
 items;
 itemObjects = itemsToitemObjects(items,assets);
 }
     
-    let showCanvasFlag = false;
-    let currentMouseX = 0;
-    let currentMouseY = 0;
-    let interval = null;
-
-
-    
 onDestroy(async () => {
     clearInterval(interval);
 });
     
 function addNewItem(newItemExtra) {
-debugger;
+    
     const newItem = getNewItem();
     newItem.itemExtra = newItemExtra;
     items.unshift(newItem);

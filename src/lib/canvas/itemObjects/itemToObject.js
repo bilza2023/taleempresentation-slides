@@ -24,7 +24,7 @@ import PieChartObject from './PieChartObject';
 export default function itemToObject(item , assets ){
 
     let selectedItem;
-    let lookFor = item.itemExtra.command;
+    let lookFor = item.itemExtra.type;
     
    switch (lookFor) {
 
@@ -46,7 +46,7 @@ export default function itemToObject(item , assets ){
     case 'dot':
     selectedItem = new DotObject(item , assets);
     break;
-    case 'angleSymbol':
+    case 'angle':
     selectedItem = new AngleObject(item , assets);
     break;
 
@@ -55,7 +55,7 @@ export default function itemToObject(item , assets ){
     // selectedItem = new SpriteObject(item , {},[]  , assets);
     break;
 
-    case 'para':
+    case 'list':
     selectedItem = new ParaObject(item , assets);
     break;
 
@@ -82,7 +82,7 @@ export default function itemToObject(item , assets ){
     selectedItem = new LinesObject(item , assets);
     break;
 
-    case 'rect':
+    case 'rectangle':
     selectedItem = new Rectangle(item  , assets);
     break;
     
@@ -90,9 +90,6 @@ export default function itemToObject(item , assets ){
     selectedItem = new ImageObject(item , assets);
     break;
     
-    case 'image2':    
-    // selectedItem = new Image2Object(item , assets);
-    break;
     
     case 'circle':
     selectedItem = new Circle(item , assets);

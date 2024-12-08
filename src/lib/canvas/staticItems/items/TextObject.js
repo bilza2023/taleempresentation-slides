@@ -9,7 +9,7 @@ export default class TextObject {
       text: "Add text..",
       x: 100,
       y: 100,
-      command: 'text',
+      type: 'text',
       fontSize: 30,
       fontFamily: "Arial",
       font: "30px Arial",
