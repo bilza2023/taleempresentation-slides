@@ -2,7 +2,7 @@
     import {selectedItemIndexStore} from "../store";
     
     import { onMount, onDestroy } from "svelte";
-    import itemToObject from "../itemObjects/itemToObject";
+    import itemToObject from "./editObjects/itemToObject";
     import {CanvasPlayer} from "../../index";
     import SelectedItem from "./SelectedItem";
     import AddToolbar from "./AddToolbar.svelte";
@@ -11,7 +11,7 @@
     import SelectItemMenu from "./SelectItemMenu.svelte";
     import CommandUi from '../dialogueBoxModule/CommandUi.svelte';
     import CanvasCommand from "../dialogueBoxModule/CanvasCommand.svelte";
-    import itemsToitemObjects from '../itemObjects/itemsToitemObjects';
+    import itemsToitemObjects from './editObjects/itemsToitemObjects';
 
     export let items;
     export let slideExtra;

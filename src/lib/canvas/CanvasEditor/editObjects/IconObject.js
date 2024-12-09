@@ -1,7 +1,7 @@
 //@ts-nocheck
 import ItemObject from './ItemObject';
 
-import { ctxStore } from '../store';
+import { ctxStore } from '../../store';
 import { get } from 'svelte/store';
 
 

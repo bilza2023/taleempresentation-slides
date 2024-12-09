@@ -115,13 +115,7 @@ get width() {
     }
   }
   sprite.applyItem(this.itemData.itemExtra.sheetItem);
-  
  return sprite.selectedData.sw * Math.abs(this.itemData.itemExtra.width);
-
-}
-
-set width(newWidth) {
-   
 }
 
 get height() {
@@ -139,8 +133,15 @@ get height() {
   return sprite.selectedData.sh * Math.abs(this.itemData.itemExtra.height);
 }
 
+
+
+set width(newWidth) {
+  // this.itemData.itemExtra.width += Math.round(newWidth/20);
+  this.itemData.itemExtra.width += 0.01;
+}
+
 set height(newHeight) {
-    // this.itemData.itemExtra.height += 0.1;
+  this.itemData.itemExtra.height += 0.01;
 }
 
 ////////////////////////////////////////////////////
