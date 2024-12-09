@@ -21,7 +21,7 @@ export default class Sprite {
 
   
   static draw(ctx, itemExtra,assets) {
-   
+ 
     try {
       let sprite;
       for (let i = 0; i < assets.spriteImages.length; i++) {

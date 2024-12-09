@@ -5,6 +5,25 @@ export const Slide = {
   "template": "",
   "items": [
     {
+      "uuid": "c65e30f2-965f-49b6-8963-5548b42ea141",
+      "name": "",
+      "content": "",
+      "showAt": 0,
+      "hideAt": null,
+      "extra": {},
+      "arr": [],
+      "itemExtra": {
+        "uuid": "2056ec04-56a9-44c4-82ce-f5c406e39fe6",
+        "type": "piechart",
+        "x": 917.0650519489114,
+        "y": 286.0067591262786,
+        "radius": 43.64701211038323,
+        "data": "[{\"title\": \"A\", \"percent\": 30, \"color\": \"red\"}, {\"title\": \"B\", \"percent\": 50, \"color\": \"blue\"}, {\"title\": \"C\", \"percent\": 20, \"color\": \"green\"}]",
+        "color": "black",
+        "globalAlpha": 1
+      }
+    },
+    {
       "uuid": "4d64359f-8b1a-4ae7-86a8-7d816dc8f932",
       "name": "",
       "content": "",
@@ -280,10 +299,10 @@ export const Slide = {
       "itemExtra": {
         "uuid": "0a43ea04-8715-4c51-8739-846ff81b336d",
         "type": "ellipse",
-        "x": 910.5949308450797,
-        "y": 227.65402670675005,
-        "radiusX": 50,
-        "radiusY": 75,
+        "x": 916.9479187346966,
+        "y": 172.59351792186166,
+        "radiusX": 18.23506055191592,
+        "radiusY": 36.881186225846506,
         "rotation": 0,
         "startAngle": 0,
         "endAngle": 360,

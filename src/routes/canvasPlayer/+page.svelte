@@ -4,16 +4,16 @@
  import CanvasPlayer from "../../lib/canvas/CanvasPlayer/CanvasPlayer.svelte";
  import {loadAssets} from "$lib";
  import AppToolbar from "./AppToolbar.svelte";
- import {Slide}  from "../../lib/canvas/samples/demo";
-  
+ import {SlideObject} from "$lib";
+
+ 
  let slide =null;
  let assets = null;
  
  
 onMount(async()=>{
-//  debugger;
-  assets = await loadAssets();
-  slide = Slide; 
+  assets = await loadAssets(); 
+    slide = SlideObject.Canvas.getDemoSlide();
 });
 
 

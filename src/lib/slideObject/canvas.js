@@ -2,7 +2,7 @@ import getNewSlide from "./getNewSlide";
 import getNewItem from "./getNewItem";
 import canvasHealth from "../canvas/canvasHealth/canvasHealth";
 import ItemsMap from '../canvas/staticItems/ItemsMap';
-
+import {Slide} from "../canvas/samples/demoSlide";
 export default class Canvas {
 
     // static ItemsMap = ItemsMap;
@@ -22,5 +22,9 @@ export default class Canvas {
 
     static itemsList() {
         return Array.from(ItemsMap.keys());
+    }
+
+    static getDemoSlide(){
+        return Slide;
     }
 }

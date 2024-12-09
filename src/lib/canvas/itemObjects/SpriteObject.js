@@ -105,8 +105,19 @@ set y(newY) {
 
 // Dimension getters and setters
 get width() {
-    return  200;
-    // return 200;
+
+  let sprite;
+  for (let i = 0; i < this.assets.spriteImages.length; i++) {
+    const element =   this.assets.spriteImages[i];
+    if(element.name == this.itemData.itemExtra.sheet) {
+        sprite = element;
+        break;
+    }
+  }
+  sprite.applyItem(this.itemData.itemExtra.sheetItem);
+  
+ return sprite.selectedData.sw * Math.abs(this.itemData.itemExtra.width);
+
 }
 
 set width(newWidth) {
@@ -114,8 +125,18 @@ set width(newWidth) {
 }
 
 get height() {
-    return 200;
-    // return 200;
+   
+  let sprite;
+  for (let i = 0; i < this.assets.spriteImages.length; i++) {
+    const element =   this.assets.spriteImages[i];
+    if(element.name == this.itemData.itemExtra.sheet) {
+        sprite = element;
+        break;
+    }
+  }
+  sprite.applyItem(this.itemData.itemExtra.sheetItem);
+  
+  return sprite.selectedData.sh * Math.abs(this.itemData.itemExtra.height);
 }
 
 set height(newHeight) {
