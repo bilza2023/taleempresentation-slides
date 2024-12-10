@@ -5,9 +5,9 @@
     import Icons  from "../icons"; 
     import {SlideObject} from "../../index";
 
-const CanvasItemsMap = SlideObject.Canvas.ItemsMap;
-// console.log("CanvasItemsMap",CanvasItemsMap);    
-    // export let icons;
+const ItemsMap = SlideObject.Canvas.ItemsMap;
+
+
     let icons = Icons;
     export let clone=()=>{};
     export let deleteFn=()=>{};
@@ -27,22 +27,23 @@ return t;
 <div class="flex justify-between text-white ">
 
 <div class="flex text-white ">
-<SmallBtnToolbar clk={()=>addNewItem(CanvasItemsMap.get('rectangle').data())} icon={icons.RECTANGLE} title="Rect" />
+<SmallBtnToolbar clk={()=>addNewItem(ItemsMap.get('rectangle').data())} icon={icons.RECTANGLE} title="Rect" />
 
-<SmallBtnToolbar clk={()=>addNewItem(CanvasItemsMap.get('ellipse').data())} icon={icons.ELLIPSE} title="Ellipse" />
+<SmallBtnToolbar clk={()=>addNewItem(ItemsMap.get('ellipse').data())} icon={icons.ELLIPSE} title="Ellipse" />
+<SmallBtnToolbar clk={()=>addNewItem(ItemsMap.get('circle').data())} icon={icons.ELLIPSE} title="Circle" />
 <!-- <SmallBtnToolbar clk={()=>addNewItem(SlideObject.canvas.CanvasItemsDefaultItemExtras.text())} icon={icons.TEXT} title="Text" /> -->
-<SmallBtnToolbar clk={()=>addNewItem( CanvasItemsMap.get('text').data() )} icon={icons.TEXT} title="Text" />
-<SmallBtnToolbar clk={()=>addNewItem(CanvasItemsMap.get('list').data() ) } icon={icons.TEMPLATE} title="List" />
-<SmallBtnToolbar clk={()=>addNewItem(CanvasItemsMap.get('line').data() ) } icon={icons.LINE} title="Line" />
-<SmallBtnToolbar clk={()=>addNewItem(CanvasItemsMap.get('triangle').data())} icon={icons.TRIANGE} title="Tri" />
-<SmallBtnToolbar clk={()=>addNewItem(CanvasItemsMap.get('ray').data())} icon={icons.SUNRISE} title="Ray" />
-<SmallBtnToolbar clk={()=>addNewItem(CanvasItemsMap.get('icon').data())} icon='🦏' title="Icon" />
-<SmallBtnToolbar clk={()=>addNewItem(CanvasItemsMap.get('dot').data())} icon={icons.DOT} title="Dot" />
-<SmallBtnToolbar clk={()=>addNewItem(CanvasItemsMap.get('angle').data())} icon={icons.ANGLE} title="Angle" />
-<SmallBtnToolbar clk={()=>addNewItem(CanvasItemsMap.get('lines').data())} icon={icons.BICYCLE} title="Lines" />
-<SmallBtnToolbar clk={()=>addNewItem(CanvasItemsMap.get('sprite').data())} icon={icons.SPRITE} title="Sprite" />
-<SmallBtnToolbar clk={()=>addNewItem(CanvasItemsMap.get('image').data())} icon={icons.MAP} title="Image" />
-<SmallBtnToolbar clk={()=>addNewItem(CanvasItemsMap.get('piechart').data())} icon={icons.PIZZA} title="Pie" />
+<SmallBtnToolbar clk={()=>addNewItem( ItemsMap.get('text').data() )} icon={icons.TEXT} title="Text" />
+<SmallBtnToolbar clk={()=>addNewItem(ItemsMap.get('list').data() ) } icon={icons.TEMPLATE} title="List" />
+<SmallBtnToolbar clk={()=>addNewItem(ItemsMap.get('line').data() ) } icon={icons.LINE} title="Line" />
+<SmallBtnToolbar clk={()=>addNewItem(ItemsMap.get('triangle').data())} icon={icons.TRIANGE} title="Tri" />
+<SmallBtnToolbar clk={()=>addNewItem(ItemsMap.get('ray').data())} icon={icons.SUNRISE} title="Ray" />
+<SmallBtnToolbar clk={()=>addNewItem(ItemsMap.get('icon').data())} icon='🦏' title="Icon" />
+<SmallBtnToolbar clk={()=>addNewItem(ItemsMap.get('dot').data())} icon={icons.DOT} title="Dot" />
+<SmallBtnToolbar clk={()=>addNewItem(ItemsMap.get('angle').data())} icon={icons.ANGLE} title="Angle" />
+<SmallBtnToolbar clk={()=>addNewItem(ItemsMap.get('lines').data())} icon={icons.BICYCLE} title="Lines" />
+<SmallBtnToolbar clk={()=>addNewItem(ItemsMap.get('sprite').data())} icon={icons.SPRITE} title="Sprite" />
+<SmallBtnToolbar clk={()=>addNewItem(ItemsMap.get('image').data())} icon={icons.MAP} title="Image" />
+<SmallBtnToolbar clk={()=>addNewItem(ItemsMap.get('piechart').data())} icon={icons.PIZZA} title="Pie" />
 </div>
             
             

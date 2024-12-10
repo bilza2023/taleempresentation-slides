@@ -66,7 +66,6 @@ static draw(ctx, itemExtra) {
   const gap = itemExtra.gap || 0;
   const globalAlpha = itemExtra.globalAlpha || 1;
 
-console.log("filled", filled);
  
 // Set properties
   ctx.lineWidth = lineWidth;
