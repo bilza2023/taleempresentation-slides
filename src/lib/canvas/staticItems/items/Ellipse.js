@@ -17,7 +17,6 @@ export default class Ellipse {
         lineWidth: 1,
         fill: false,
         color: "red",
-        showAt: 0,
         globalAlpha: 1
     };
   }

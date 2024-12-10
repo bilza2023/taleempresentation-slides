@@ -9,7 +9,8 @@
     import AddToolbar from "./AddToolbar.svelte";
     import getMouseData from "./getMouseData";
     import SelectItemMenu from "./SelectItemMenu.svelte";
-    import CommandUi from '../dialogueBoxModule/CommandUi.svelte';
+
+    import DialogueBox from '../dialogueBox/DialogueBox.svelte';
     import CanvasCommand from "../dialogueBoxModule/CanvasCommand.svelte";
     import itemsToitemObjects from './editObjects/itemsToitemObjects';
     import {SlideObject} from "$lib";
@@ -40,6 +41,11 @@ onDestroy(async () => {
     clearInterval(interval);
 });
     
+function getDialogueBox(itemType){
+    const staticItem = SlideObject.Canvas.ItemsMap.get(itemType);
+    return staticItem.dialogueBox();
+
+}
 function addNewItem(newItemExtra) {
 
     const firstSegment = uuid().split('-')[0];
@@ -202,9 +208,9 @@ function logSlideLocal(){
                 />
                 
                 {#if selectedItem}    
-                    <CommandUi 
+                    <DialogueBox 
                         bind:item={items[$selectedItemIndexStore]}
-                        dialogueBox={selectedItem.itemObject.dialogueBox}
+                        dialogueBox={getDialogueBox(items[$selectedItemIndexStore].itemExtra.type) }
                       
                     />
                 {/if}

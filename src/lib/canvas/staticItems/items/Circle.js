@@ -17,7 +17,6 @@ export default class Circle {
       fill: false,
       lineWidth: 1,
       color: "black",
-      showAt: 0,
       globalAlpha: 1
     };
   }

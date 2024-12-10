@@ -1,0 +1,23 @@
+rules
+
+1 : exclude type , uuid
+
+2: special list text = text area , piechart data = also textarea also lines of lines
+3: all numbers are step =1 for globalAlpha step =0.1
+
+4: color is color
+
+5: filled is t/f
+
+
+// ellipse fill should be filled all the correct word is filled
+
+// font should not be in any itemExtra it shoul be just font size and font-fmaily
+
+// min max values of each item
+
+// do we need image with image item ??? it is just for loading image item in execution.
+
+// in image why ext??
+
+//ray instead of x0-x1 it should be x1-x2 y1-y2

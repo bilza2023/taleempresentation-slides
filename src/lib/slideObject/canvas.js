@@ -27,33 +27,19 @@ export default class Canvas {
      * 
      */
     static newSlide() {
-        const slideExtra = {
-            backgroundColor: '#efebb8',
-            canvasWidth : 1000,
-            canvasHeight : 360,
-            cellHeight : 25,
-            cellWidth : 25,
-            bgImg : 'system_images/bg_images/black_mat.jpg',
-            bgGlobalAlpha : 1,
-            xFactor : 0,
-            yFactor : 0,
-            ///////////////////
-            showGrid : false,
-            gridLineWidth : 1,
-            gridLineColor : 'gray'
-        }
+        const slideExtra = Canvas.getSlideExtra();
         return {
-            uuid : uuid(),
-            version : 'basic',
-            startTime : 0,
-            endTime : 10,
-            type : 'canvas', // canvas is fixed here 
-            template : '',
-            items : [],
+            uuid: uuid(),
+            version: 'basic',
+            startTime: 0,
+            endTime: 10,
+            type: 'canvas', // canvas is fixed here 
+            template: '',
+            items: [],
             slideExtra,
         }
     }
-    static getItemExtra(){
+    static getSlideExtra(){
         return {
             backgroundColor: '#efebb8',
             canvasWidth : 1000,
@@ -70,7 +56,21 @@ export default class Canvas {
             gridLineColor : 'gray'
         };
     }
-
+    static getAllItemsExtras() {
+        const itemsExtras = [];
+        
+        for (const [key, ItemClass] of ItemsMap.entries()) {
+          if (typeof ItemClass.data === 'function') {
+            const itemExtra = ItemClass.data();
+            itemsExtras.push({
+              type: key,
+              ...itemExtra
+            });
+          }
+        }
+        
+        return itemsExtras;
+      }
 
 
 
