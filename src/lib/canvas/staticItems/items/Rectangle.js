@@ -55,7 +55,8 @@ return dialogueBox;
       // Set properties
       ctx.lineWidth = lineWidth;
       ctx.globalAlpha = itemExtra.globalAlpha;
-    console.log("ctx.globalAlpha",ctx.globalAlpha);
+    
+
       // Set line dash pattern
       if (dash === 0 && gap === 0) {
           ctx.setLineDash([]);

@@ -6,7 +6,6 @@
   $: valueWithoutDecimal = value ? Math.trunc(value) : value;
 
   function handleInput(e) {
-    debugger;
       value = parseInt(e.target.value);
   }
 </script>

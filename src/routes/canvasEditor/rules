@@ -1,13 +1,3 @@
-rules
-
-1 : exclude type , uuid
-
-2: special list text = text area , piechart data = also textarea also lines of lines
-3: all numbers are step =1 for globalAlpha step =0.1
-
-4: color is color
-
-5: filled is t/f
 
 
 // ellipse fill should be filled all the correct word is filled

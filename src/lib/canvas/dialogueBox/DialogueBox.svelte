@@ -14,12 +14,12 @@
     export let dialogueBox;
   
     const componentMap = {
-      Number: InputNumber,
-      Float: InputFloat,
-      TextArea: InputTextArea,
-      Text: InputText,
-      Boolean: InputCheckbox,
-      Color: InputColor,
+      Number    : InputNumber,
+      Float     : InputFloat,
+      TextArea  : InputTextArea,
+      Text      : InputText,
+      Boolean   : InputCheckbox,
+      Color     : InputColor,
       
     };
   </script>

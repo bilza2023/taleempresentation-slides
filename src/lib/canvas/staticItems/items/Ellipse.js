@@ -7,21 +7,48 @@ export default class Ellipse {
     return {
         uuid: uuid(),
         type: 'ellipse',
+        
         x: 100,
         y: 100,
+
         radiusX: 50,
         radiusY: 75,
         rotation: 0,
+
         startAngle: 0,
         endAngle: 360,
+
         lineWidth: 1,
-        fill: false,
+        filled: false,
+
         color: "red",
         globalAlpha: 1
     };
   }
 
+  static dialogueBox(){
+
+    let dialogueBox = [];
+ 
+  dialogueBox.push({name:'x', type:'Number',config:{min:0,max:1000,step:1} });
+  dialogueBox.push({name:'y', type:'Number',config:{min:0,max:1000,step:1} });
   
+  dialogueBox.push({name:'radiusX', type:'Number',config:{min:0,max:1000,step:1} });
+  dialogueBox.push({name:'radiusY', type:'Number',config:{min:0,max:1000,step:1} });
+  dialogueBox.push({name:'rotation', type:'Float',config:{min:0,max:360,step:0.1} });
+  
+  dialogueBox.push({name:'startAngle', type:'Float',config:{min:-360,max:360,step:0.1} });
+  dialogueBox.push({name:'endAngle', type:'Float',config:{min:-360,max:360,step:0.1} });
+
+  dialogueBox.push({name:'lineWidth', type:'Number',config:{min:0,max:1000,step:1} });
+  dialogueBox.push({name:'filled', type:'Boolean',config:{} });
+
+  dialogueBox.push({name:'color', type:'Color',     config:{} });
+  dialogueBox.push({name:'globalAlpha', type:'Float',config:{min:0,max:1,step:0.01} });
+
+return dialogueBox;
+}
+
   static draw(ctx, itemExtra) {
       // Save the current context state
       ctx.save();
@@ -32,7 +59,7 @@ export default class Ellipse {
       const radiusX = itemExtra.radiusX;
       const radiusY = itemExtra.radiusY;
       const color = itemExtra.color || 'black';
-      const fill = itemExtra.fill || false;
+      const filled = itemExtra.filled || false;
       const rotation = (itemExtra.rotation) || 0 * (Math.PI / 180);
       const startAngle = (itemExtra.startAngle) || 0 * (Math.PI / 180);
       const endAngle = (itemExtra.endAngle) || 360 * (Math.PI / 180);
@@ -47,7 +74,7 @@ export default class Ellipse {
       ctx.beginPath();
       ctx.ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle);
   
-      if (fill) {
+      if (filled) {
           ctx.fillStyle = color;
           ctx.fill();
       } else {
