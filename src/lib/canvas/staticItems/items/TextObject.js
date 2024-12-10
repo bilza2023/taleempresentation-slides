@@ -54,10 +54,10 @@ export default class TextObject {
     const y = itemExtra.y;
     
     // Apply shadow properties with defaults
-    ctx.shadowOffsetX = itemExtra.shadowOffsetX || 0;
-    ctx.shadowOffsetY = itemExtra.shadowOffsetY || 0;
-    ctx.shadowBlur = itemExtra.shadowBlur || 4;
-    ctx.shadowColor = itemExtra.shadowColor || 'gray';
+    ctx.shadowOffsetX = 0;
+    ctx.shadowOffsetY = 0;
+    ctx.shadowBlur = 0;
+    // ctx.shadowColor = itemExtra.shadowColor || 'gray';
     
     // Set text rendering properties
     ctx.globalAlpha = itemExtra.globalAlpha;

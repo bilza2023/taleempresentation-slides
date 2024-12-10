@@ -9,11 +9,13 @@ export default class Piechart {
     return {
       uuid: uuid(),
       type: 'piechart',
+
       x: 100,
       y: 100,
+      
       radius: 50,
       data:'[{"title": "A", "percent": 30, "color": "red"}, {"title": "B", "percent": 50, "color": "blue"}, {"title": "C", "percent": 20, "color": "green"}]',
-      color: "black",
+      
       globalAlpha: 1
     };
   }
@@ -22,15 +24,14 @@ export default class Piechart {
 
     let dialogueBox = [];
  
+  dialogueBox.push({name:'data', type:'TextArea',      config:{min:0,max:1000,step:1} });
+
   dialogueBox.push({name:'x', type:'Number',config:{min:0,max:1000,step:1} });
   dialogueBox.push({name:'y', type:'Number',config:{min:0,max:1000,step:1} });
-  dialogueBox.push({name:'width', type:'Number',    config:{min:0,max:1000,step:1} });
-  dialogueBox.push({name:'height', type:'Number',   config:{min:0,max:1000,step:1} });
-  dialogueBox.push({name:'filled', type:'Boolean',  config:{} });
-  dialogueBox.push({name:'lineWidth', type:'Number',config:{min:0,max:1000,step:1} });
-  dialogueBox.push({name:'dash', type:'Number',     config:{min:0,max:1000,step:1} });
-  dialogueBox.push({name:'gap', type:'Number',      config:{min:0,max:1000,step:1} });
-  dialogueBox.push({name:'color', type:'Color',     config:{} });
+
+  dialogueBox.push({name:'radius', type:'Number',      config:{min:0,max:1000,step:1} });
+
+
   dialogueBox.push({name:'globalAlpha', type:'Float',config:{min:0,max:1,step:0.01} });
 return dialogueBox;
 }
@@ -49,7 +50,8 @@ return dialogueBox;
 
     // Save context state
     ctx.save();
-
+    ctx.globalAlpha = itemExtra.globalAlpha;
+    
     data.forEach(pie => {
         // Draw pie slice
         const endAngle = startAngle + (pie.percent / 100) * 2 * Math.PI;

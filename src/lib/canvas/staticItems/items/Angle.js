@@ -60,6 +60,7 @@ export default class Angle {
     ctx.save();
     ctx.strokeStyle = color;
     ctx.lineWidth = lineWidth;
+    ctx.globalAlpha = itemExtra.globalAlpha;
 
     // Draw the arc
     ctx.beginPath();

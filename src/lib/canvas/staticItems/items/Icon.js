@@ -9,24 +9,52 @@ export default class Icon {
     return {
       uuid: uuid(),
       type: 'icon',
-      text: "This is Heading",
+
       x: 100,
       y: 100,
+
+      text: "This is Heading",
       fontSize: 28,
       iconSize: 100,
       fontFamily: 'Arial',
       icon: '🦏',
+
+
       showBg: false,
       iconOnTop: true,
       iconErrorX: 0,
       iconErrorY: 0,
       bgColor: 'gray',
+      
       color: "red",
       globalAlpha: 1
     };
   }
 
+  static dialogueBox(){
+
+    let dialogueBox = [];
+ 
+  dialogueBox.push({name:'x', type:'Number',config:{min:0,max:1000,step:1} });
+  dialogueBox.push({name:'y', type:'Number',config:{min:0,max:1000,step:1} });
+
+  dialogueBox.push({name:'text', type:'Text',        config:{} });
+  dialogueBox.push({name:'fontSize', type:'Number',    config:{min:0,max:1000,step:1} });
+  dialogueBox.push({name:'iconSize', type:'Number',    config:{min:0,max:1000,step:1} });
+  dialogueBox.push({name:'fontFamily', type:'FontFamily',  config:{} });
+
+
+  dialogueBox.push({name:'showBg', type:'Boolean',        config:{} });
+  // dialogueBox.push({name:'iconOnTop', type:'Boolean',        config:{} });
+  dialogueBox.push({name:'iconErrorX', type:'Number',        config:{} });
+  dialogueBox.push({name:'iconErrorY', type:'Number',        config:{} });
+  dialogueBox.push({name:'bgColor', type:'Color',        config:{} });
   
+  
+  dialogueBox.push({name:'color', type:'Color',     config:{} });
+  dialogueBox.push({name:'globalAlpha', type:'Float',config:{min:0,max:1,step:0.01} });
+return dialogueBox;
+}  
   static draw(ctx, itemExtra) {
  
     ctx.save();
