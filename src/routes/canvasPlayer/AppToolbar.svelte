@@ -1,8 +1,6 @@
 <script>
     export let createNewSlide;
     export let importFile;
-    export let saveSlide;
-    export let fileNameToSave;
   </script>
   
   <div class="flex p-0 m-0 bg-gray-900 text-white gap-2 py-1">
@@ -18,11 +16,6 @@
         class="hidden"
       />
     </label>
-    <button class="text-[10px]" on:click={saveSlide}>Save 💾</button>
-    <input 
-      class="text-[10px] p-0 text-white bg-gray-600 rounded-md text-center" 
-      type="text" 
-      bind:value={fileNameToSave} 
-    />
+   
   </div>
   

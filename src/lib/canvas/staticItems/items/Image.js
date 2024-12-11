@@ -13,6 +13,7 @@ export default class Image {
       x: 50,
       y: 50,
       
+      src: '', //????
       image: null, //????
       
       width: 200,
@@ -29,6 +30,7 @@ export default class Image {
   dialogueBox.push({name:'x', type:'Number',config:{min:0,max:1000,step:1} });
   dialogueBox.push({name:'y', type:'Number',config:{min:0,max:1000,step:1} });
 
+  dialogueBox.push({name:'src', type:'Text',    config:{min:0,max:1000,step:1} });
   dialogueBox.push({name:'width', type:'Number',    config:{min:0,max:1000,step:1} });
   dialogueBox.push({name:'height', type:'Number',   config:{min:0,max:1000,step:1} });
   

@@ -1,9 +1,9 @@
 <script>
 //@ts-nocheck
-import TrNo from "./TrNo.svelte";   
-import TrText from "./TrText.svelte";   
-import TrColor from "./TrColor.svelte";   
-import TrTf from "./TrTf.svelte";   
+// import InputNumber from "./InputNumber.svelte";   
+// import TrText from "../dialogueBoxModule/TrText.svelte";   
+// import TrColor from "../dialogueBoxModule/TrColor.svelte";   
+// import TrTf from "../dialogueBoxModule/TrTf.svelte";   
 
 export let extra;
 

@@ -11,7 +11,7 @@
     import SelectItemMenu from "./SelectItemMenu.svelte";
 
     import DialogueBox from '../dialogueBox/DialogueBox.svelte';
-    import CanvasCommand from "../dialogueBoxModule/CanvasCommand.svelte";
+    import CanvasCommand from "../dialogueBox/CanvasCommand.svelte";
     import itemsToitemObjects from './editObjects/itemsToitemObjects';
     import {SlideObject} from "$lib";
 

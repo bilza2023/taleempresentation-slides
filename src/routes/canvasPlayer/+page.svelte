@@ -13,7 +13,7 @@
  
 onMount(async()=>{
   assets = await loadAssets(); 
-    slide = SlideObject.Canvas.getDemoSlide();
+    slide = SlideObject.Canvas.demoSlide();
 });
 
 
