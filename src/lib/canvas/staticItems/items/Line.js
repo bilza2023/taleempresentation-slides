@@ -1,8 +1,5 @@
 import  uuid  from '../../../uuid';
 
-// add type in data
-// remove item in draw
-// change class name
 export default class Line {
   
   static data() { 
