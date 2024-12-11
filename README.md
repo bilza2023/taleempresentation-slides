@@ -6,7 +6,8 @@
 
 <hr/>
 
-# Version 0.4.0 (30-Nov-2024)
+# Version 0.9.0 (12-Dec-2024)
+###### Version 0.4.0 (30-Nov-2024)
 
 - This library has 2 slides "Eqs" and "canvas". It means that we have Player and Editor for each slide.
 
