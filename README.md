@@ -1,6 +1,11 @@
 # Slides For Taleem Presentation 
 
- [Canvas Slide](./notes/canvas.md) , [Canvas Items Fields](./notes/canvas-items-fields.md) 
+
+ [Canvas Slide](./notes/canvas.md) , [Canvas Items Fields](./notes/canvas-items-fields.md) , [How Canvas Works](./notes/how-canvas-works.md) ,[Important Technical Concepts](./notes/important-technical-concepts.md) 
+
+
+<hr/>
+
 # Version 0.4.0 (30-Nov-2024)
 
 - This library has 2 slides "Eqs" and "canvas". It means that we have Player and Editor for each slide.
