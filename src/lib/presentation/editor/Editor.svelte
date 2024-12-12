@@ -3,12 +3,12 @@
   import Toolbar from './toolbar/Toolbar.svelte';
   import PresentationModeEditor from "./PresentationModeEditor.svelte";
   import LeftPanel from './LeftPanel.svelte';
-  import loadAssets from "../assets/loadAssets";
-  import {moveSlide,deleteSlide,copySlide,pasteSlide,cloneSlide} from '../code/sliderServices';
-  import registerSlideTypes from "../code/slideRegistery/registerSlideTypes";
-  import createNewSlide from "../code/createNewSlide.js";
+  import PresentationObject from "../../code/presentationObject/PresentationObject";
+  import {moveSlide,deleteSlide,copySlide,pasteSlide,cloneSlide} from '../../code/sliderServices';
+  import registerSlideTypes from "../../code/slideRegistery/registerSlideTypes";
+  import createNewSlide from "../../code/createNewSlide.js";
   
-  import upgrade2Basic from "../upgrade2Basic.js";
+  // import upgrade2Basic from "../upgrade2Basic.js";
 
   // Initialize slide types
   registerSlideTypes();
@@ -112,8 +112,8 @@
 
   onMount(async()=>{
     // assets injected with loadAssets functions nothing else required. just call the loadAssets function and on this layer of the app you get assets bundle. 
-    assets =  await loadAssets();
-    slides = await upgrade2Basic(slides);
+    assets =  await PresentationObject.loadAssets();
+    slides = slides;
     ready = true;
   });
 </script>

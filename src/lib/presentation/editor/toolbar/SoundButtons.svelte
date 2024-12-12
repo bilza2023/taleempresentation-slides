@@ -1,6 +1,7 @@
 <script>
 //@ts-nocheck
-import {Icons,onMount} from '../../util';
+import {onMount} from 'svelte';
+import Icons from '../../icons';
 import { Howl } from "howler";
 import {NavBtn2} from 'sveltetools_bils/src/cmp';
 

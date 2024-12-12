@@ -2,9 +2,7 @@
     import PlayerWithSound from "./PlayerWithSound.svelte";
     import PlayerNs from "./PlayerNs.svelte";
     import { onMount } from 'svelte';
-    import loadAssets from "../assets/loadAssets";
-    // import upgrade2Basic from "../upgrade2Basic.js";
-
+    import PresentationObject from "../../code/presentationObject/PresentationObject";
     
   let assets = null;
     ////////////////////====Slides Registration///////
@@ -20,9 +18,7 @@
     $: hasAudio = audioData !== undefined;
 /////////////////////////////////////////////////
   onMount(async()=>{
-  // assets injected with loadAssets functions nothing else required. just call the loadAssets function and on this layer of the app you get assets bundle. 
-       assets =  await loadAssets();
-    //  slides = await upgrade2Basic(slides);
+       assets =  await PresentationObject.loadAssets();
   }); 
   </script>
   

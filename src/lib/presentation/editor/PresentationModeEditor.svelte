@@ -2,8 +2,8 @@
   //@ts-nocheck
 
   import { onMount } from 'svelte';
-  import Icons  from "../util/icons.js";
-  import SlideRegistry  from '../code/slideRegistery/SlideRegistry.js';
+  import Icons  from "../icons";
+  import SlideRegistry  from '../../code/slideRegistery/SlideRegistry';
   const registry = SlideRegistry.getInstance();
   
   export let currentTime = 0;

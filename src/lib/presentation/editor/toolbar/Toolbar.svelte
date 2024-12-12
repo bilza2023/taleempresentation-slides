@@ -1,7 +1,7 @@
 <script >
 //@ts-nocheck
 import {NavBtn2,NavLink,Logo,NavBtn,AreYouSure} from 'sveltetools_bils/src/cmp';
-import {Icons} from '../../util';
+import Icons from '../../icons';
 import SoundButtons from './SoundButtons.svelte';
 import NewSlidesDlg from "./NewSlidesDlg.svelte";
 export let show;

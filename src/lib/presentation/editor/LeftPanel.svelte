@@ -1,6 +1,6 @@
 <script>
 //@ts-nocheck
-import {Icons} from '../util';
+import Icons from '../icons';
 export let slides;
 export let setCurrentSlideIndex;
 export let currentSlideIndex;
