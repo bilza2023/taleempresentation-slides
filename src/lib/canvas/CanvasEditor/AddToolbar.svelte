@@ -15,11 +15,7 @@ const ItemsMap = SlideObject.Canvas.ItemsMap;
 
 export let addNewItem;
 
-function tryme(){
-debugger;
-const t = SlideObject.canvas.CanvasItemsDefaultItemExtras.rect();
-return t;
-}
+
 </script>
 <div class="flex justify-between text-white ">
 
