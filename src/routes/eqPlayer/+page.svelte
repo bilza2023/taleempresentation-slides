@@ -1,8 +1,8 @@
 
 <script>
 import {onMount} from 'svelte';
-import EqPlayer from "../../lib/eqs/EqPlayer/EqPlayer.svelte";
-// import {Slide} from "../../lib/eqs/testData/baseEqSlide.js";
+import {EqPlayer} from "$lib/slides";
+
 import StartStopToolbar from "./StartStopToolbar.svelte";
 
 // import {loadAssets} from "$lib";

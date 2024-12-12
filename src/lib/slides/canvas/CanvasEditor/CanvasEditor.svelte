@@ -20,6 +20,7 @@
     export let assets;
     export let showAddToolbar = true;
 
+    const ItemsMap = SlideObject.Canvas.ItemsMap;
     let selectedItem = null;
     let itemObjects = null;
        
@@ -46,7 +47,9 @@ function getDialogueBox(itemType){
     return staticItem.dialogueBox();
 
 }
-function addNewItem(newItemExtra) {
+
+function addNewItem(itemType) {
+    const newItemExtra = ItemsMap.get(itemType).data();
 
     const firstSegment = uuid().split('-')[0];
     const name = newItemExtra.type + '_' +firstSegment  ;

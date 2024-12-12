@@ -1,8 +1,8 @@
 
 <script>
 import {onMount} from "svelte"    
-import EqEditor from "../../lib/eqs/EqsEditor/EqsEditor.svelte";
-import {Slide} from "../../lib/eqs/testData/baseEqSlide.js";
+import {EqsEditor} from "$lib/slides";
+import {Slide} from "$lib/slides/eqs/testData/baseEqSlide.js";
 import StartStopToolbar from "./StartStopToolbar.svelte";
 
 // import {loadAssets} from "$lib";
@@ -31,7 +31,7 @@ function start(){
 
 
 {#if slide}
-<EqEditor  
+<EqsEditor  
 bind:items={slide.items}  
 {currentTime}
 bind:slideExtra={slide.slideExtra}

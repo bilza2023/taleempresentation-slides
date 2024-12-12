@@ -1,11 +1,11 @@
 <script>
    import AppToolbar from "./AppToolbar.svelte";
-  import {CanvasEditor}  from "$lib";
+  import {CanvasEditor}  from "$lib/slides";
   import {onMount} from "svelte";
 
-  import {SlideObject} from "$lib";
+  import {SlideObject} from "$lib/slides";
 
-  import {loadAssets} from "$lib";
+  import {loadAssets} from "$lib/slides";
   let slide = null;
   let showAddToolbar = true;
   let assets = null;

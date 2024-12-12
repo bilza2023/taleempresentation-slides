@@ -1,3 +1,43 @@
+
+look at this ToolBar.svelte component. This is a toolbar that i use in my app however i have noticed that the component is too much merged/mixed with the app. a component should not know about the app. this way i can use the same form ot tool bar every where.
+
+here are my comments:
+
+ 1. this toolbar should not import anything. Not Required
+     import Icons  from "../icons"; 
+    import {SlideObject} from "../../index";
+    const ItemsMap = SlideObject.Canvas.ItemsMap;
+
+2. it should export let 1 function 
+        "export let callBack"; //or any other suitable name 
+
+3 . it should export let an array of objects in this format (each item has data for 1 toolbar button). This part can be a seperate toolbar called ToolBarCallbackWithArgs.svelte
+
+    [
+        {
+            icon: '⏱️',
+            payload : "rectangle"
+            title: 'Rectangle
+        }
+    ]
+
+and this item is converted into 
+
+<SmallBtnToolbar clk={()=>callBack('rectangle')} icon='⏱️' title="Rectangle" />
+
+4: This part of the Toolbar should be a seperate toolbar since the way it call callbacks is different (it does not use ()=>). We can call it ToolBarCallback.svelte
+
+        <div class='flex border-2 border-gray-500 rounded-md'>
+        <SmallBtnToolbar clk={clone} icon={icons.SHEEP} title="Clone" />
+        <SmallBtnToolbar clk={showCanvas} icon={icons.CANVAS} title="Canvas" />
+        <SmallBtnToolbar clk={deleteFn} icon={icons.WASTEBASKET} title="Delete" />
+        </div>
+
+5: Actually we should have a ToolbarDiv.svelte which is just a toolbar div and can take slots and then we can  have 2 toolbars inside the slots 
+
+
+the code Toolbar.svelte
+
 <script>
     //@ts-nocheck
 
