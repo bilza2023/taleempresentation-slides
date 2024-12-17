@@ -29,13 +29,13 @@ import { onMount } from 'svelte';
 
   $: currentSlide = slides?.[currentSlideIndex] || null;
 
-  $:{
-    if(slides.length > 0){
-      // debugger;
-    const startTime = slides[0].startTime;
-    console.log("startTime" , startTime);
-    }
-  }
+  // $:{
+  //   if(slides.length > 0){
+  //     // debugger;
+  //   const startTime = slides[0].startTime;
+  //   console.log("startTime" , startTime);
+  //   }
+  // }
   // Slide navigation
   function setCurrentSlideIndex(index) {
     if (index >= 0 && index < slides.length) {
@@ -45,11 +45,20 @@ import { onMount } from 'svelte';
     }
   }
 
+  function setNewSlideTimings(newSlide){
+    if(slides.length === 0){
+      //no need its already 0 and 10
+    }else {
+      newSlide.startTime = slides[slides.length -1 ].endTime;
+      newSlide.endTime = newSlide.startTime + 10;
+    }
+  }
   // Slide operations
   function handleAddNew(slideType) {
     try {
       // debugger;
       const newSlide = SlideObject.getNewSlide(slideType);
+      setNewSlideTimings(newSlide);
       slides = [...slides, newSlide];
       setCurrentSlideIndex(slides.length - 1);
       show = false;

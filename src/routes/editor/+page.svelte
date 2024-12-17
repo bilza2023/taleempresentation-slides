@@ -49,7 +49,7 @@ onMount(async()=>{
     <Editor
       isBlob={true}
       {showToolbar}
-      {slides}
+      bind:slides={slides}
       {audioData}
     />
   {/if}
