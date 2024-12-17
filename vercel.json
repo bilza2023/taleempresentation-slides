@@ -1,8 +1,0 @@
-{
-  "framework": "nextjs",
-  "functions": {
-    "nodeVersion": {
-      "runtime": "nodejs18.x"
-    }
-  }
-}
