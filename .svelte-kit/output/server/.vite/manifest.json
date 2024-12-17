@@ -8,9 +8,12 @@
       "_internal.js"
     ]
   },
-  "_EqPanel.svelte_svelte_type_style_lang.js": {
-    "file": "_app/immutable/assets/EqPanel.BhBxKCG4.css",
-    "src": "_EqPanel.svelte_svelte_type_style_lang.js"
+  "_client.js": {
+    "file": "chunks/client.js",
+    "name": "client",
+    "imports": [
+      "_exports.js"
+    ]
   },
   "_exports.js": {
     "file": "chunks/exports.js",
@@ -30,11 +33,23 @@
       "_ssr.js"
     ]
   },
-  "_people.js": {
-    "file": "chunks/people.js",
-    "name": "people",
+  "_registerSlideTypes.js": {
+    "file": "chunks/registerSlideTypes.js",
+    "name": "registerSlideTypes",
+    "imports": [
+      "_ssr.js",
+      "_slideObject.js"
+    ]
+  },
+  "_slideObject.js": {
+    "file": "chunks/slideObject.js",
+    "name": "slideObject",
+    "imports": [
+      "_ssr.js",
+      "_index.js"
+    ],
     "css": [
-      "_app/immutable/assets/people.C1k6Yo8L.css"
+      "_app/immutable/assets/slideObject.BhBxKCG4.css"
     ]
   },
   "_ssr.js": {
@@ -48,7 +63,7 @@
     "isEntry": true,
     "imports": [
       "_ssr.js",
-      "_exports.js"
+      "_client.js"
     ]
   },
   "node_modules/@sveltejs/kit/src/runtime/components/svelte-4/layout.svelte": {
@@ -87,11 +102,7 @@
     "isEntry": true,
     "imports": [
       "_ssr.js",
-      "_people.js",
-      "_index.js"
-    ],
-    "css": [
-      "_app/immutable/assets/EqPanel.BhBxKCG4.css"
+      "_slideObject.js"
     ]
   },
   "src/routes/canvasPlayer/+page.svelte": {
@@ -101,10 +112,21 @@
     "isEntry": true,
     "imports": [
       "_ssr.js",
-      "_people.js"
+      "_slideObject.js"
+    ]
+  },
+  "src/routes/editor/+page.svelte": {
+    "file": "entries/pages/editor/_page.svelte.js",
+    "name": "entries/pages/editor/_page.svelte",
+    "src": "src/routes/editor/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_ssr.js",
+      "_slideObject.js",
+      "_registerSlideTypes.js"
     ],
     "css": [
-      "_app/immutable/assets/EqPanel.BhBxKCG4.css"
+      "_app/immutable/assets/_page.BJl6mL1l.css"
     ]
   },
   "src/routes/eqEditor/+page.svelte": {
@@ -114,10 +136,7 @@
     "isEntry": true,
     "imports": [
       "_ssr.js",
-      "_people.js"
-    ],
-    "css": [
-      "_app/immutable/assets/EqPanel.BhBxKCG4.css"
+      "_slideObject.js"
     ]
   },
   "src/routes/eqPlayer/+page.svelte": {
@@ -126,10 +145,23 @@
     "src": "src/routes/eqPlayer/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_ssr.js"
+      "_ssr.js",
+      "_slideObject.js"
+    ]
+  },
+  "src/routes/player/+page.svelte": {
+    "file": "entries/pages/player/_page.svelte.js",
+    "name": "entries/pages/player/_page.svelte",
+    "src": "src/routes/player/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_ssr.js",
+      "_slideObject.js",
+      "_client.js",
+      "_registerSlideTypes.js"
     ],
     "css": [
-      "_app/immutable/assets/EqPanel.BhBxKCG4.css"
+      "_app/immutable/assets/_page.i9Z8OS_V.css"
     ]
   }
 }

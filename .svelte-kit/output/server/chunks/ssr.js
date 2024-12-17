@@ -27,6 +27,9 @@ function get_store_value(store) {
   subscribe(store, (_) => value = _)();
   return value;
 }
+function null_to_empty(value) {
+  return value == null ? "" : value;
+}
 function custom_event(type, detail, { bubbles = false, cancelable = false } = {}) {
   return new CustomEvent(type, { detail, bubbles, cancelable });
 }
@@ -144,22 +147,23 @@ function create_ssr_component(fn) {
   };
 }
 function add_attribute(name, value, boolean) {
-  if (value == null || boolean) return "";
-  const assignment = `="${escape(value, true)}"`;
+  if (value == null || boolean && !value) return "";
+  const assignment = boolean && value === true ? "" : `="${escape(value, true)}"`;
   return ` ${name}${assignment}`;
 }
 export {
   subscribe as a,
   add_attribute as b,
   create_ssr_component as c,
-  get_store_value as d,
+  each as d,
   escape as e,
-  each as f,
+  get_store_value as f,
   getContext as g,
   createEventDispatcher as h,
-  safe_not_equal as i,
+  noop as i,
+  safe_not_equal as j,
   missing_component as m,
-  noop as n,
+  null_to_empty as n,
   onDestroy as o,
   setContext as s,
   validate_component as v
