@@ -63,6 +63,9 @@ function start(){
 bind:items={slide.items}  
 {currentTime}
 bind:slideExtra={slide.slideExtra}
+
+slideStartTime={slide.startTime}
+slideEndTime={slide.endTime}
 />
 {/if}
 

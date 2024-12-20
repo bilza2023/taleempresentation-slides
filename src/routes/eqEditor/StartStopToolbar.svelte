@@ -3,11 +3,13 @@
     export let currentTime;
     export let start;
     export let stop;
+    export let startTime;
+    export let endTime;
 
     
     function log(){
         localStorage.setItem("slide",JSON.stringify(slide) );
-        alert("Saved to localstorage");
+        alert("Printed to console");
     }
 
   </script>
@@ -16,8 +18,10 @@
     
     <button class="text-[10px] rounded-md bg-stone-400 px-2" on:click={start}>Start</button>
     <button class="text-[10px] rounded-md bg-stone-400 px-2" on:click={stop}>Stop</button>
-    <button class="text-[10px] rounded-md bg-stone-400 px-2" on:click={log}>Log</button>
+    <button class="text-[10px] rounded-md bg-stone-400 px-2" on:click={log}>{slide}</button>
 
-    <div class="text-xs">Current Time : {currentTime}</div>
+    <div class="text-[10px] rounded-md bg-stone-400 px-2">Current Time : {currentTime}</div>
+    <div class="text-[10px] rounded-md bg-stone-400 px-2">Slide Start Time : {slide.startTime}</div>
+    <div class="text-[10px] rounded-md bg-stone-400 px-2">Slide End Time : {slide.endTime}</div>
   </div>
   

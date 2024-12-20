@@ -3,6 +3,7 @@
     //@ts-nocheck
     export let item;
     export let currentTime;
+    export let isFirst;
     export let updateTimings;
     
 function addTime(){
@@ -13,6 +14,8 @@ updateTimings();
 }
 
 function handleInputChange(event) {
+    if (isFirst) { return;}
+    
         const newValue = parseInt(event.target.value);
         item.itemExtra.startTime = newValue;
         item.showAt = newValue;
@@ -29,10 +32,11 @@ function handleInputChange(event) {
         bind:value={item.itemExtra.startTime} 
         on:input={handleInputChange}
         class="text-xs bg-gray-800 text-white"
+        disabled={isFirst}
     />
 
-    <div class="text-[14px]">Start:{item.itemExtra.startTime}</div>
-    <div class="text-[14px]">End:{item.itemExtra.endTime}</div>
+    <div class="text-[14px]">Start:{ item.itemExtra.startTime.toFixed(2)}</div>
+    <div class="text-[14px]">End:{item.itemExtra.endTime.toFixed(2)}</div>
     <button class='bg-orange-800 text-xs p-0 m-1 rounded-md' on:click={addTime}>Set Time</button>
 </div>
   

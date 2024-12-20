@@ -1,6 +1,7 @@
 <script>
    
   import {SlideObject}  from "$lib";
+  //????????????????
   import CanvasEditor from "../../lib/slides/canvas/CanvasEditor/CanvasEditor.svelte";
   import {onMount} from "svelte";
   
@@ -53,6 +54,9 @@
      bind:slideExtra = {slide.slideExtra}
      {assets}
      {showAddToolbar}
+
+     slideStartTime={slide.startTime}
+     slideEndTime={slide.endTime}
     />
   {/if}
 </div>

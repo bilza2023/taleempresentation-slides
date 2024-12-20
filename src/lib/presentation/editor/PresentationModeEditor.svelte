@@ -68,8 +68,8 @@ for (let i = 0; i < currentSlide.items.length; i++) {
           {currentSlide}
           bind:items={currentSlide.items}
       
-          startTime={currentSlide.startTime}
-          endTime={currentSlide.endTime}
+          slideStartTime={currentSlide.startTime}
+          slideEndTime={currentSlide.endTime}
           
           bind:slideExtra={currentSlide.slideExtra}
           {currentTime}
